@@ -1,0 +1,15 @@
+---
+import SectionHead from './SectionHead.astro';
+import ExperienceCards from './ExperienceCards.astro';
+import Button from './Button.astro';
+interface Props { current: string }
+const { current } = Astro.props;
+---
+<section class="section">
+  <div class="wrap">
+    <SectionHead eyebrow="Make it a complete visit" title="Pair it with <em>more of Pushkar</em>" text="Many guests combine adventure, a comfortable stay and a cultural evening. Ask us about bringing them together for your dates." align="split">
+      <Button href="/experiences/" variant="ghost-dark" size="sm">All experiences</Button>
+    </SectionHead>
+    <ExperienceCards exclude={[current]} layout="row" />
+  </div>
+</section>

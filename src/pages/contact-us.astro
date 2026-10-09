@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import Photo from '../components/Photo.astro';
+import { business, bookingSteps } from '../data/site';
+const services = ['Desert Safari', 'Camp Stay', 'Swiss Tent Stay', 'Folk Dance & Fire Show', 'Group Visit', 'Safari & Stay'];
+---
+<Layout title="Contact & Booking Enquiries | Pushkar Desert Safari" description="Contact Pushkar Desert Safari on +91 9116991219 or info@pushkardesertcamp.com. Plan a desert safari, camp stay, Swiss tent visit or group experience.">
+  <section class="contact-hero">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span></nav>
+        <p class="eyebrow hero-in">Let’s plan something memorable</p>
+        <h1 class="hero-in">Your Pushkar journey <em>starts with a hello.</em></h1>
+        <p class="lead hero-in">Tell us what you have in mind. We’ll help with the current details, availability and arrangements for your visit.</p>
+        <div class="contact-methods hero-in">
+          <a class="contact-method" href={business.tel}><span class="contact-icon"><Icon name="phone" size={20} /></span><span><small>Give us a call</small><strong>{business.phone}</strong><span>Safari, accommodation &amp; group enquiries</span></span></a>
+          <a class="contact-method" href={business.whatsapp} target="_blank" rel="noopener noreferrer"><span class="contact-icon is-wa"><Icon name="whatsapp" size={21} /></span><span><small>Prefer a quick chat?</small><strong>WhatsApp us</strong><span>Share your plans in a message<span class="sr-only"> (opens in a new tab)</span></span></span></a>
+          <a class="contact-method" href={`mailto:${business.email}`}><span class="contact-icon"><Icon name="mail" size={20} /></span><span><small>Send an email</small><strong>{business.email}</strong></span></a>
+          <div class="contact-method"><span class="contact-icon"><Icon name="pin" size={20} /></span><span><small>Find us in</small><strong>{business.location}</strong><span>Contact us for the exact location and directions.</span></span></div>
+        </div>
+      </div>
+
+      <form id="enquiry-form" class="enquiry-form hero-in">
+        <div class="form-head"><h2>Plan your visit</h2><p>Fill in your details to prepare a WhatsApp enquiry. You’ll review and send the message in WhatsApp; this form does not make a reservation.</p></div>
+        <div class="form-grid">
+          <div class="form-field"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required maxlength="100" /></div>
+          <div class="form-field"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required pattern={'[+0-9\\(\\) .\\-]{7,25}'} maxlength="25" title="Enter a phone number with 7–25 characters using numbers, spaces, +, parentheses or hyphens." /></div>
+          <div class="form-field full"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="150" /></div>
+          <div class="form-field full"><label for="service">Interested in *</label><select id="service" name="service" required><option value="">Choose your experience</option>{services.map(s => <option value={s}>{s}</option>)}</select></div>
+          <div class="form-field"><label for="date">Preferred date <span>(optional)</span></label><input id="date" name="date" type="date" /></div>
+          <div class="form-field"><label for="guests">Number of guests <span>(optional)</span></label><input id="guests" name="guests" type="number" min="1" max="999" step="1" inputmode="numeric" /></div>
+          <div class="form-field full"><label for="message">Your message *</label><textarea id="message" name="message" rows="4" required maxlength="2000"></textarea></div>
+        </div>
+        <div class="honeypot" aria-hidden="true"><label for="website">Leave this blank</label><input name="website" id="website" tabindex="-1" autocomplete="off" /></div>
+        <p class="form-consent">Your details are used to discuss your enquiry. By opening WhatsApp, you choose to share them with the business via WhatsApp. Read our <a href="/privacy-policy/">privacy and enquiry information</a>.</p>
+        <button class="button form-submit" type="submit" disabled><span class="button-label">Prepare WhatsApp Enquiry</span><span class="button-icon"><Icon name="whatsapp" size={18} /></span></button>
+        <p id="form-status" class="form-status" role="status"></p>
+        <noscript><p class="form-noscript">Please enable JavaScript to prepare an enquiry, or <a href={business.tel}>call us directly</a>.</p></noscript>
+      </form>
+    </div>
+  </section>
+
+  <section class="section tone-dark next-steps">
+    <div class="wrap next-grid">
+      <figure class="next-media" data-reveal="mask"><Photo name="lantern" sizes="(max-width: 860px) 92vw, 38vw" /></figure>
+      <div data-reveal>
+        <p class="eyebrow">What happens next</p>
+        <h2>A direct conversation, <em>no booking engine.</em></h2>
+        <ol class="next-list">{bookingSteps.map((s, i) => <li><span>0{i + 1}</span><div><h3>{s.title}</h3><p>{s.text}</p></div></li>)}</ol>
+      </div>
+    </div>
+  </section>
+</Layout>

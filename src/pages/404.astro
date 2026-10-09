@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import Photo from '../components/Photo.astro';
+---
+<Layout title="Page Not Found | Pushkar Desert Safari" description="Return to Pushkar Desert Safari to explore safari adventures, camp stays and cultural experiences." noindex={true}>
+  <section class="not-found">
+    <div class="not-found-media" data-hero-media><Photo name="safariDunes" eager sizes="100vw" decorative /></div>
+    <div class="wrap not-found-inner">
+      <p class="eyebrow hero-in">A little off the trail</p>
+      <h1 class="hero-in">Page <em>not found.</em></h1>
+      <p class="hero-in">Let’s take you back to the start of your Pushkar journey.</p>
+      <div class="button-row hero-in"><Button href="/" variant="amber">Return Home</Button><Button href="/experiences/" variant="ghost-light">Our Experiences</Button></div>
+    </div>
+  </section>
+</Layout>

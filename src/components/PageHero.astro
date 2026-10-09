@@ -1,0 +1,26 @@
+---
+import Photo from './Photo.astro';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+import { business, type PhotoKey } from '../data/site';
+interface Props {
+  title: string; eyebrow: string; description: string; photo: PhotoKey;
+  variant?: 'full' | 'split'; inset?: PhotoKey; insetLabel?: string; position?: string;
+  cta?: string; ctaHref?: string; showActions?: boolean;
+}
+const { title, eyebrow, description, photo, variant = 'full', inset, insetLabel, position = 'center', cta = 'Enquire About Your Visit', ctaHref = '/contact-us/', showActions = true } = Astro.props;
+---
+<section class:list={['page-hero', `page-hero-${variant}`]}>
+  {variant === 'full' && <div class="page-hero-media" data-hero-media style={`--pos:${position}`}><Photo name={photo} eager sizes="100vw" decorative /></div>}
+  <div class="wrap page-hero-grid">
+    <div class="page-hero-copy">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">{eyebrow}</span></nav>
+      <p class="eyebrow hero-in">{eyebrow} · Pushkar, Rajasthan</p>
+      <h1 class="hero-in" set:html={title} />
+      <p class="page-hero-lead hero-in">{description}</p>
+      {showActions && <div class="button-row hero-in"><Button href={ctaHref} variant={variant === 'full' ? 'amber' : ''}>{cta}</Button><Button href={business.whatsapp} variant={variant === 'full' ? 'ghost-light' : 'ghost-dark'} icon="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp<span class="sr-only"> (opens in a new tab)</span></Button></div>}
+    </div>
+    {variant === 'split' && <div class="page-hero-arch hero-in"><Photo name={photo} eager sizes="(max-width: 860px) 90vw, 42vw" /></div>}
+    {variant === 'full' && inset && <figure class="page-hero-inset hero-in"><Photo name={inset} sizes="(max-width: 860px) 40vw, 260px" /><figcaption><Icon name="sparkle" size={14} />{insetLabel || 'Real photo from our camp'}</figcaption></figure>}
+  </div>
+</section>

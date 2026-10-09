@@ -1,0 +1,19 @@
+---
+import Photo from './Photo.astro';
+import type { PhotoKey } from '../data/site';
+interface Props { photo: PhotoKey; secondary?: PhotoKey; eyebrow: string; title: string; reverse?: boolean; shape?: 'arch' | 'rounded'; id?: string; tone?: '' | 'sand' | 'dark'; caption?: string }
+const { photo, secondary, eyebrow, title, reverse = false, shape = 'rounded', id, tone = '', caption } = Astro.props;
+---
+<section id={id} class:list={['section', tone && `tone-${tone}`]}>
+  <div class:list={['wrap', 'split', { 'split-reverse': reverse }]}>
+    <div class:list={['split-media', `shape-${shape}`, { 'has-secondary': secondary }]}>
+      <figure class="split-main" data-reveal="mask"><Photo name={photo} sizes="(max-width: 860px) 92vw, 46vw" />{caption && <figcaption>{caption}</figcaption>}</figure>
+      {secondary && <figure class="split-secondary" data-reveal="scale"><Photo name={secondary} sizes="(max-width: 860px) 44vw, 18vw" /></figure>}
+    </div>
+    <div class="split-copy" data-reveal>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 set:html={title} />
+      <slot />
+    </div>
+  </div>
+</section>

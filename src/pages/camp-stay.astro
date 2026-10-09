@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SplitFeature from '../components/SplitFeature.astro';
+import SectionHead from '../components/SectionHead.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import CrossSell from '../components/CrossSell.astro';
+import FAQ from '../components/FAQ.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import Button from '../components/Button.astro';
+---
+<Layout title="Camp Stay in Pushkar | Pushkar Desert Safari" description="Discover furnished camp accommodation, tent bedrooms and natural surroundings at Pushkar Desert Safari. Enquire directly for stay details and availability." image="bedroom" preload="bedroom">
+  <PageHero eyebrow="Camp Stay" title="Slow mornings. <em>Peaceful surroundings.</em>" description="Stay in the heart of the camp experience, with furnished tents and a quieter space to unwind after your adventures in Pushkar." photo="bedroom" position="center 55%" inset="tent" insetLabel="Tent exterior" cta="Enquire About a Stay" ctaHref="/contact-us/?service=Camp%20Stay" />
+
+  <SplitFeature photo="tent" secondary="washroom" shape="arch" eyebrow="Make yourself at home" title="A comfortable base for your <em>Pushkar journey.</em>">
+    <p>Patterned tent interiors, furnished bedrooms and green outdoor spaces give the camp its distinctive character. Explore the photographs to see the accommodation for yourself.</p>
+    <p>We’ll help you understand the current stay arrangements before you book. Contact us for availability, rates, meals and other details.</p>
+    <div class="button-row"><Button href="/swiss-tent/">Take a Look Inside</Button><Button href="/contact-us/?service=Camp%20Stay" variant="ghost-dark">Check Availability</Button></div>
+  </SplitFeature>
+
+  <SplitFeature id="poolside" tone="sand" photo="pool" reverse shape="rounded" eyebrow="Between adventures" title="A moment <em>by the pool.</em>" caption="The camp pool">
+    <p>The camp photographs offer a glimpse of the pool and its leafy surroundings — another side of the Pushkar experience.</p>
+    <p>Please ask about current pool access and any facility arrangements when planning your stay.</p>
+    <div class="button-row"><Button href="/contact-us/?service=Camp%20Stay">Enquire About a Stay</Button></div>
+  </SplitFeature>
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHead eyebrow="Around the camp" title="Room to rest <em>&amp; reconnect</em>" text="Bedrooms, canvas and calm. Select a photograph to see it in full." align="split" />
+      <GalleryGrid items={['interior', 'bedroom', 'tent']} variant="trio" />
+    </div>
+  </section>
+
+  <CrossSell current="/camp-stay/" />
+  <FAQ items={[
+    { q: 'How can I book a camp stay?', a: 'Get in touch with your preferred date, number of guests and any requirements. The team will confirm availability and explain the current stay arrangements.' },
+    { q: 'Are rates and meals included on this website?', a: 'Rates and meal arrangements are confirmed directly with the team. Please ask what is included before finalising your visit.' },
+    { q: 'Can we plan a group visit?', a: 'Yes, you can send a group enquiry. Share your preferred dates and group size so the team can discuss the available options.' },
+  ]} />
+  <BookingCTA />
+</Layout>

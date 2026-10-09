@@ -1,0 +1,66 @@
+/* Design tokens — evolved from the Pushkar Desert Camp logo:
+   sunset amber, burnished gold, deep cocoa and the existing maroon accent. */
+:root {
+  /* Colour */
+  --ivory: #fbf6ec;
+  --paper: #fffcf6;
+  --sand: #f4e7d1;
+  --dune: #e7d0a8;
+  --amber: #e7a03c;
+  --amber-soft: #f3c27a;
+  --gold: #c58a3a;
+  --bronze: #8f531a;
+  --maroon: #7f1d16;
+  --maroon-deep: #5c130e;
+  --cocoa: #3b1d0f;
+  --ink: #21130a;
+  --night: #150d08;
+  --muted: #6b4c37;
+  --on-dark: #fbf1e2;
+  --on-dark-muted: #d9c4ab;
+  --line: rgba(59, 29, 15, 0.14);
+  --line-strong: rgba(59, 29, 15, 0.3);
+  --line-light: rgba(255, 238, 214, 0.18);
+  --wa-green: #1f9d57;
+
+  /* Type */
+  --serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fs-display: clamp(2.85rem, 1.6rem + 5.2vw, 7rem);
+  --fs-h1: clamp(2.6rem, 1.7rem + 4vw, 5.4rem);
+  --fs-h2: clamp(2.25rem, 1.6rem + 2.7vw, 4.2rem);
+  --fs-h3: clamp(1.45rem, 1.25rem + 0.7vw, 1.95rem);
+  --fs-lead: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.75rem;
+
+  /* Layout: wide (≈90%) and readable widths */
+  --gutter: clamp(18px, 5vw, 80px);
+  --wrap: min(1560px, calc(100% - 2 * var(--gutter)));
+  --wrap-narrow: min(1040px, calc(100% - 2 * var(--gutter)));
+  --section: clamp(76px, 4rem + 5vw, 150px);
+  --header-h: 92px;
+
+  /* Shape & depth */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 30px;
+  --r-arch: 999px 999px 26px 26px;
+  --r-pill: 999px;
+  --shadow-sm: 0 2px 10px rgba(33, 19, 10, 0.06);
+  --shadow-md: 0 22px 44px -24px rgba(33, 19, 10, 0.35);
+  --shadow-lg: 0 46px 90px -40px rgba(33, 19, 10, 0.55);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 0.25s;
+  --t-med: 0.5s;
+  --t-slow: 0.9s;
+}
+
+@media (max-width: 760px) {
+  :root { --header-h: 76px; }
+}

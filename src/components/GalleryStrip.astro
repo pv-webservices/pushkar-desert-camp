@@ -1,0 +1,23 @@
+---
+import GalleryGrid from './GalleryGrid.astro';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+import type { PhotoKey } from '../data/site';
+interface Props { eyebrow: string; title: string; text?: string; items: PhotoKey[]; tone?: 'dark' | 'light' }
+const { eyebrow, title, text, items, tone = 'dark' } = Astro.props;
+---
+<section class:list={['section', 'strip-section', tone === 'dark' && 'tone-dark']} data-strip>
+  <div class="wrap strip-head" data-reveal>
+    <div>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 set:html={title} />
+      {text && <p class="section-head-text">{text}</p>}
+    </div>
+    <div class="strip-controls">
+      <button type="button" class="round-btn" data-strip-prev aria-label="Scroll photos back"><Icon name="arrow" size={20} /></button>
+      <button type="button" class="round-btn" data-strip-next aria-label="Scroll photos forward"><Icon name="arrow" size={20} /></button>
+      <Button href="/gallery/" variant={tone === 'dark' ? 'ghost-light' : 'ghost-dark'} size="sm">Full gallery</Button>
+    </div>
+  </div>
+  <GalleryGrid items={items} variant="strip" />
+</section>

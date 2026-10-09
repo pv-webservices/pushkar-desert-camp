@@ -1,0 +1,53 @@
+---
+import Icon from './Icon.astro';
+import { business } from '../data/site';
+const path = Astro.url.pathname;
+const current = (url: string) => (path === url ? 'page' : undefined);
+const within = (urls: string[]) => urls.includes(path);
+const experienceLinks = [
+  { href: '/experiences/', label: 'All Experiences', note: 'Adventure, stay & culture' },
+  { href: '/desert-safari/', label: 'Desert Safari', note: 'Jeep adventures around Pushkar' },
+  { href: '/cultural-experiences/', label: 'Folk Dance & Fire Show', note: 'Rajasthan’s cultural evenings' },
+];
+const stayLinks = [
+  { href: '/camp-stay/', label: 'Camp Stay', note: 'Peaceful camp surroundings' },
+  { href: '/swiss-tent/', label: 'Swiss Tent', note: 'Furnished canvas comfort' },
+  { href: '/camp-stay/#poolside', label: 'Poolside', note: 'A quiet moment by the pool' },
+];
+---
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="header-bar">
+    <a class="brand" href="/" aria-label="Pushkar Desert Safari home"><img src="/images/logo-display.webp" width="170" height="104" alt="Pushkar Desert Camp" fetchpriority="high" /></a>
+    <nav id="main-navigation" class="main-nav" aria-label="Main navigation">
+      <a class="nav-link" href="/" aria-current={current('/')}>Home</a>
+      <a class="nav-link" href="/about-us/" aria-current={current('/about-us/')}>About</a>
+      <div class="nav-group">
+        <a class:list={['nav-link', { 'is-section': within(['/experiences/', '/desert-safari/', '/cultural-experiences/']) }]} href="/experiences/" aria-current={current('/experiences/')}>Experiences</a>
+        <button class="dropdown-toggle" type="button" aria-label="Show experience pages" aria-expanded="false" aria-controls="experience-menu"><Icon name="chevron" size={14} /></button>
+        <div id="experience-menu" class="dropdown">{experienceLinks.map(l => <a href={l.href}><strong>{l.label}</strong><span>{l.note}</span></a>)}</div>
+      </div>
+      <div class="nav-group">
+        <a class:list={['nav-link', { 'is-section': within(['/camp-stay/', '/swiss-tent/']) }]} href="/camp-stay/" aria-current={current('/camp-stay/')}>Stay</a>
+        <button class="dropdown-toggle" type="button" aria-label="Show accommodation pages" aria-expanded="false" aria-controls="stay-menu"><Icon name="chevron" size={14} /></button>
+        <div id="stay-menu" class="dropdown">{stayLinks.map(l => <a href={l.href}><strong>{l.label}</strong><span>{l.note}</span></a>)}</div>
+      </div>
+      <a class="nav-link" href="/gallery/" aria-current={current('/gallery/')}>Gallery</a>
+      <a class="nav-link" href="/contact-us/" aria-current={current('/contact-us/')}>Contact</a>
+      <div class="mobile-nav-foot">
+        <a class="button" href="/contact-us/">Plan your visit <Icon name="arrow" size={18} /></a>
+        <div class="mobile-nav-contacts">
+          <a href={business.tel}><Icon name="phone" size={18} />{business.phone}</a>
+          <a href={business.whatsapp} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" size={18} />WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+          <a href={`mailto:${business.email}`}><Icon name="mail" size={18} />{business.email}</a>
+        </div>
+      </div>
+    </nav>
+    <div class="header-actions">
+      <a class="header-phone" href={business.tel} aria-label={`Call Pushkar Desert Safari on ${business.phone}`}><span class="header-phone-icon"><Icon name="phone" size={16} /></span><span class="header-phone-text"><small>Call to book</small>{business.phone}</span></a>
+      <a class="button button-sm header-book" href="/contact-us/">Book Now <Icon name="arrow" size={16} /></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<noscript><style is:inline>.menu-toggle,.dropdown-toggle{display:none!important}.main-nav{position:static!important;display:flex!important;flex-wrap:wrap;opacity:1!important;visibility:visible!important;transform:none!important;background:none!important;padding:0!important;height:auto!important;inset:auto!important}.header-bar{flex-wrap:wrap}.dropdown{display:none!important}.mobile-nav-foot{display:none!important}</style></noscript>

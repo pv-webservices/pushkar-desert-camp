@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SplitFeature from '../components/SplitFeature.astro';
+import Button from '../components/Button.astro';
+import Marquee from '../components/Marquee.astro';
+import Steps from '../components/Steps.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import type { PhotoKey } from '../data/site';
+const stories: { eyebrow: string; title: string; photo: PhotoKey; secondary: PhotoKey; description: string; href: string; label: string }[] = [
+  { eyebrow: 'For the adventurous', title: 'Out into <em>the open.</em>', photo: 'safari', secondary: 'journey', description: 'Trade the everyday for sandy tracks and wide-open skies. Our jeep safari experience brings the adventure of Pushkar to life.', href: '/desert-safari/', label: 'Explore Desert Safari' },
+  { eyebrow: 'For a slower pace', title: 'Stay a little <em>closer to nature.</em>', photo: 'bedroom', secondary: 'washroom', description: 'Find your own peaceful corner of the camp. Furnished tent accommodation offers a welcoming place to rest between your Rajasthan adventures.', href: '/camp-stay/', label: 'Explore Camp Stay' },
+  { eyebrow: 'For canvas & comfort', title: 'A tent with <em>character.</em>', photo: 'tent', secondary: 'interior', description: 'Patterned interiors, comfortable bedding and the charm of a canvas exterior. See the genuine Swiss tents and spaces at our camp.', href: '/swiss-tent/', label: 'Discover Swiss Tents' },
+  { eyebrow: 'For Rajasthan’s vibrant spirit', title: 'An evening in <em>full colour.</em>', photo: 'fire', secondary: 'dance', description: 'Traditional folk dance and fire performances bring warmth, movement and colour to the camp’s cultural experience. Ask us about arrangements for your visit.', href: '/cultural-experiences/', label: 'Explore Cultural Experiences' },
+  { eyebrow: 'For quiet moments', title: 'A pause <em>by the pool.</em>', photo: 'pool', secondary: 'tent', description: 'Between adventures, enjoy a quieter moment in the green surroundings of the camp. Ask about current pool access when planning your stay.', href: '/camp-stay/#poolside', label: 'Poolside at the Camp' },
+];
+---
+<Layout title="Experiences in Pushkar | Safari, Camp Stay & Culture" description="Explore jeep safaris, camp stays, Swiss tent accommodation and Rajasthani folk dance and fire shows at Pushkar Desert Safari." preload="sunrise">
+  <PageHero eyebrow="Experiences" title="One destination. <em>Many ways to remember it.</em>" description="Fill your visit with the things you love: adventure, a quiet stay, and a taste of Rajasthan’s cultural spirit." photo="sunrise" position="center 60%" inset="guests" insetLabel="Real guest moment" />
+  <Marquee />
+  {stories.map((s, i) => (
+    <SplitFeature tone={i % 2 === 1 ? 'sand' : ''} photo={s.photo} secondary={s.secondary} reverse={i % 2 === 1} shape={i % 2 === 0 ? 'arch' : 'rounded'} eyebrow={`0${i + 1} · ${s.eyebrow}`} title={s.title}>
+      <p>{s.description}</p>
+      <div class="button-row"><Button href={s.href}>{s.label}</Button></div>
+    </SplitFeature>
+  ))}
+  <Steps />
+  <BookingCTA />
+</Layout>

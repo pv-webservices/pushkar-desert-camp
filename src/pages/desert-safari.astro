@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import CrossSell from '../components/CrossSell.astro';
+import FAQ from '../components/FAQ.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import Icon from '../components/Icon.astro';
+const features = [
+  { icon: 'jeep', title: 'A jeep adventure', text: 'Enjoy the experience of heading out into the sandy surroundings of Pushkar.' },
+  { icon: 'users', title: 'Shared memories', text: 'Whether travelling with friends or family, talk to us about a safari for your group.' },
+  { icon: 'calendar', title: 'Your visit, your plan', text: 'Ask about the current route, timings, pricing and arrangements before confirming.' },
+];
+---
+<Layout title="Desert Safari in Pushkar | Jeep Safari Enquiries" description="Discover a jeep safari experience in Pushkar with genuine guest photographs. Contact Pushkar Desert Safari for current timings, arrangements and availability." preload="safariDunes">
+  <PageHero eyebrow="Desert Safari" title="Open skies. Sandy tracks. <em>Big smiles.</em>" description="Make room for a little adventure. Discover Pushkar’s sandy landscape from a safari jeep, with moments you’ll want to remember." photo="safariDunes" inset="journey" insetLabel="Real safari guests" cta="Enquire About a Safari" ctaHref="/contact-us/?service=Desert%20Safari" />
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHead eyebrow="Let the adventure begin" title="There’s a different kind of <em>freedom</em> out here." text="A jeep, the Rajasthan landscape and good company. Our safari photographs tell the story of shared adventures around Pushkar. Speak with us to plan yours." align="split" />
+      <div class="feature-cards">
+        {features.map((f, i) => <div class="feature-card" data-reveal style={`--delay:${i * 90}ms`}><span class="reason-icon"><Icon name={f.icon} size={26} /></span><h3>{f.title}</h3><p>{f.text}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tone-dark">
+    <div class="wrap">
+      <SectionHead eyebrow="From the adventure" title="The real <em>safari experience</em>" text="Guest moments, captured in Pushkar. Select a photograph to take a closer look." align="split" />
+      <GalleryGrid items={['safari', 'group', 'guests']} variant="trio" />
+    </div>
+  </section>
+
+  <CrossSell current="/desert-safari/" />
+  <FAQ items={[
+    { q: 'How do I arrange a safari?', a: 'Call or send a WhatsApp enquiry with your preferred date and group size. The team will share availability and the current safari details.' },
+    { q: 'What is the duration, route and price?', a: 'Contact us to confirm the current route, duration, price and inclusions. These details are agreed directly with the team before your visit.' },
+    { q: 'Can I combine a safari with a camp stay?', a: 'Enquire about both experiences together. The team can discuss the available arrangements for your preferred dates.' },
+    { q: 'What should I check before visiting?', a: 'Ask the team about suitable clothing, weather conditions, participation requirements and any arrangements needed for your group.' },
+  ]} />
+  <BookingCTA />
+</Layout>

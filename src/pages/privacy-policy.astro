@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { business } from '../data/site';
+---
+<Layout title="Privacy & Enquiry Information | Pushkar Desert Safari" description="How the Pushkar Desert Safari website handles direct enquiries, WhatsApp message preparation and booking information.">
+  <section class="page-intro">
+    <div class="wrap-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Privacy & Enquiries</span></nav>
+      <p class="eyebrow hero-in">Website information</p>
+      <h1 class="hero-in">Privacy <em>&amp; enquiries</em></h1>
+      <p class="page-intro-text hero-in">This page describes the features of this website and the direct enquiry process.</p>
+    </div>
+  </section>
+  <section class="section prose-section">
+    <div class="wrap-narrow prose">
+      <h2>Information entered in the enquiry form</h2>
+      <p>The form prepares a message in your browser using the details you enter. It does not submit the information to a website database or send a message automatically. Opening the WhatsApp link takes you to WhatsApp, where you can review and choose to send your enquiry.</p>
+      <h2>Direct contact services</h2>
+      <p>Calling, emailing or messaging the business shares the information you choose to provide through your phone, email service or WhatsApp. Those services may apply their own privacy policies. Please share only information relevant to your visit.</p>
+      <h2>Website storage</h2>
+      <p>The website code does not set tracking cookies, use analytics or save enquiry details in local storage. Your hosting provider may process technical access logs according to its own configuration.</p>
+      <h2>Booking enquiries</h2>
+      <p>An enquiry is a request for information, rather than a confirmed reservation. Availability, prices, timings, inclusions, payment arrangements and cancellation conditions must be agreed directly with the business before you book.</p>
+      <h2>Website imagery</h2>
+      <p>Photographs of the camp, tents, guests and performances are the business’s own. A small number of landscape and still-life images (such as dunes, the night sky and decorative textures) are illustrative and used for atmosphere only.</p>
+      <h2>Privacy questions</h2>
+      <p>For questions about information you have shared with Pushkar Desert Safari, contact <a href={`mailto:${business.email}`}>{business.email}</a> or call <a href={business.tel}>{business.phone}</a>.</p>
+    </div>
+  </section>
+</Layout>

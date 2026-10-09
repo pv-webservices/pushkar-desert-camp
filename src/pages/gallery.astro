@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import { galleryKeys } from '../data/site';
+const filters = ['All', 'Safari', 'Stay', 'Culture', 'Property'];
+---
+<Layout title="Photo Gallery | Pushkar Desert Safari Camp & Experiences" description="Browse genuine photos of jeep safari guests, Swiss tent accommodation, the camp pool and Rajasthani cultural performances at Pushkar Desert Safari.">
+  <section class="page-intro">
+    <div class="wrap page-intro-grid">
+      <div>
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Gallery</span></nav>
+        <p class="eyebrow hero-in">The moments we remember</p>
+        <h1 class="hero-in">A glimpse of your <em>Pushkar journey</em></h1>
+      </div>
+      <p class="page-intro-text hero-in">Explore our real camp, accommodation and experiences — every photograph here was taken at Pushkar Desert Safari. Select a photograph to take a closer look.</p>
+    </div>
+  </section>
+  <section class="section gallery-page">
+    <div class="wrap">
+      <div class="gallery-toolbar">
+        <div class="gallery-filters" role="group" aria-label="Filter gallery photographs">{filters.map((f, i) => <button type="button" data-filter={f} aria-pressed={i === 0 ? 'true' : 'false'}>{f === 'All' ? 'All moments' : f}</button>)}</div>
+        <p id="gallery-count" class="gallery-count" aria-live="polite">{galleryKeys.length} photographs · All moments</p>
+      </div>
+      <GalleryGrid items={galleryKeys} variant="masonry" />
+    </div>
+  </section>
+  <BookingCTA />
+</Layout>

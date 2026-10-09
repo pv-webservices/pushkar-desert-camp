@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+import { business } from '../data/site';
+---
+<nav class="quick-contact" aria-label="Quick contact">
+  <a class="wa-float" href={business.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp (opens in a new tab)"><Icon name="whatsapp" size={26} /><span class="wa-float-label">Chat with us</span></a>
+  <div class="contact-dock">
+    <a href={business.tel}><Icon name="phone" size={19} /><span>Call</span></a>
+    <a href={business.whatsapp} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" size={20} /><span>WhatsApp<span class="sr-only"> (opens in a new tab)</span></span></a>
+    <a class="dock-primary" href="/contact-us/"><Icon name="calendar" size={18} /><span>Enquire</span></a>
+  </div>
+</nav>

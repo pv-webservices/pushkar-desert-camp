@@ -1,0 +1,14 @@
+---
+interface Props { eyebrow: string; title: string; text?: string; align?: 'center' | 'left' | 'split'; level?: 'h1' | 'h2' }
+const { eyebrow, title, text, align = 'left', level = 'h2' } = Astro.props;
+const Heading = level;
+---
+<div class:list={['section-head', `section-head-${align}`]} data-reveal>
+  <div class="section-head-main">
+    <p class="eyebrow">{eyebrow}</p>
+    <Heading set:html={title} />
+    {align !== 'split' && text && <p class="section-head-text">{text}</p>}
+  </div>
+  {align === 'split' && <div class="section-head-aside">{text && <p class="section-head-text">{text}</p>}<slot /></div>}
+  {align !== 'split' && <slot />}
+</div>

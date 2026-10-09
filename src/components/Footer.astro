@@ -1,0 +1,38 @@
+---
+import Icon from './Icon.astro';
+import { business } from '../data/site';
+---
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/" aria-label="Pushkar Desert Safari home"><img src="/images/logo-display.webp" width="170" height="104" alt="Pushkar Desert Camp" loading="lazy" /></a>
+      <p class="footer-tagline">A little adventure. A little tranquillity.<br />A beautiful taste of <em>Rajasthan.</em></p>
+      <div class="footer-quick">
+        <a class="icon-pill" href={business.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Enquire on WhatsApp (opens in a new tab)"><Icon name="whatsapp" size={20} /></a>
+        <a class="icon-pill" href={business.tel} aria-label={`Call ${business.phone}`}><Icon name="phone" size={18} /></a>
+        <a class="icon-pill" href={`mailto:${business.email}`} aria-label={`Email ${business.email}`}><Icon name="mail" size={18} /></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h2>Discover</h2>
+      <a href="/about-us/">About Us</a><a href="/experiences/">Our Experiences</a><a href="/gallery/">Photo Gallery</a><a href="/contact-us/">Plan Your Visit</a>
+    </div>
+    <div class="footer-col">
+      <h2>Experiences</h2>
+      <a href="/desert-safari/">Desert Safari</a><a href="/camp-stay/">Camp Stay</a><a href="/swiss-tent/">Swiss Tent Stay</a><a href="/cultural-experiences/">Folk Dance & Fire Show</a>
+    </div>
+    <div class="footer-col footer-contact">
+      <h2>Get in touch</h2>
+      <a href={business.tel}><Icon name="phone" size={17} />{business.phone}</a>
+      <a href={`mailto:${business.email}`}><Icon name="mail" size={17} />{business.email}</a>
+      <a href={business.whatsapp} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" size={17} />Enquire on WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+      <p><Icon name="pin" size={17} />{business.location}</p>
+    </div>
+  </div>
+  <div class="footer-word" aria-hidden="true">Pushkar</div>
+  <div class="wrap footer-bottom">
+    <p>© {new Date().getFullYear()} Pushkar Desert Safari. All rights reserved.</p>
+    <a href="/privacy-policy/">Privacy & Enquiries</a>
+    <p>Made for memorable journeys.</p>
+  </div>
+</footer>

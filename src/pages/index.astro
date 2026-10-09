@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Photo from '../components/Photo.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+import Marquee from '../components/Marquee.astro';
+import SectionHead from '../components/SectionHead.astro';
+import ExperienceCards from '../components/ExperienceCards.astro';
+import GalleryStrip from '../components/GalleryStrip.astro';
+import Steps from '../components/Steps.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import { business, type PhotoKey } from '../data/site';
+
+const reasons = [
+  { icon: 'mountain', title: 'Scenic surroundings', text: 'Open skies and the natural beauty of Rajasthan.' },
+  { icon: 'tent', title: 'A comfortable stay', text: 'Furnished tents in a peaceful, green camp setting.' },
+  { icon: 'jeep', title: 'Safari adventures', text: 'Head out for a memorable jeep safari experience.' },
+  { icon: 'flame', title: 'Rajasthani culture', text: 'Folk dance, vibrant costumes and fire performances.' },
+];
+const day: { label: string; title: string; text: string; photo: PhotoKey; href: string; link: string }[] = [
+  { label: 'Arrive', title: 'Settle into your Swiss tent', text: 'Canvas outside, comfort within. Unpack in a furnished tent framed by the camp’s green surroundings.', photo: 'tent', href: '/swiss-tent/', link: 'See the tents' },
+  { label: 'Explore', title: 'Head out on a jeep safari', text: 'Climb aboard for sandy tracks, wide-open skies and the joy of a desert adventure around Pushkar.', photo: 'safari', href: '/desert-safari/', link: 'About the safari' },
+  { label: 'Share', title: 'Make memories together', text: 'Friends, family or a whole group — the best moments out here are the ones you share.', photo: 'guests', href: '/gallery/', link: 'Browse guest moments' },
+  { label: 'Celebrate', title: 'Folk dance & fire show', text: 'As the day slows, colourful costumes, captivating movement and the glow of fire take centre stage.', photo: 'fire', href: '/cultural-experiences/', link: 'The cultural evening' },
+  { label: 'Unwind', title: 'A quiet desert night', text: 'Return to the calm of the camp and a comfortable bed after a day full of Rajasthan.', photo: 'nightSky', href: '/camp-stay/', link: 'About the camp stay' },
+  { label: 'Refresh', title: 'Slow moments by the pool', text: 'Take a quieter moment by the pool, surrounded by trees, before your next adventure.', photo: 'pool', href: '/camp-stay/#poolside', link: 'Poolside' },
+];
+---
+<Layout title="Pushkar Desert Safari | Desert Adventures & Swiss Tent Stays" description="Discover Pushkar Desert Safari: jeep safari adventures, peaceful camp stays, Swiss tents and Rajasthani cultural evenings in Pushkar. Enquire directly to plan your visit." preload="heroDunes">
+
+  <section class="hero">
+    <div class="hero-media" data-hero-media><Photo name="heroDunes" eager sizes="100vw" decorative /></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="hero-kicker hero-in"><span class="kicker-dot"></span>Pushkar · Rajasthan · India</p>
+        <h1 class="hero-title hero-in"><span class="line">Desert safaris</span> <span class="line">&amp; Swiss tent stays</span> <em class="line">in Pushkar</em></h1>
+        <p class="hero-lead hero-in">Wide-open skies. A warm welcome. Discover the beauty of Rajasthan — from sandy jeep adventures to peaceful tent stays and colourful cultural evenings.</p>
+        <div class="button-row hero-in">
+          <Button variant="amber">Plan Your Visit</Button>
+          <Button href={business.whatsapp} variant="ghost-light" icon="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp Us<span class="sr-only"> (opens in a new tab)</span></Button>
+        </div>
+        <ul class="hero-services hero-in" aria-label="Our services">
+          <li><a href="/desert-safari/"><Icon name="jeep" size={18} />Desert Safari</a></li>
+          <li><a href="/camp-stay/"><Icon name="tent" size={18} />Camp Stay</a></li>
+          <li><a href="/swiss-tent/"><Icon name="bed" size={18} />Swiss Tent</a></li>
+        </ul>
+      </div>
+      <div class="hero-visual hero-in">
+        <a class="hero-card hero-card-main" href="/desert-safari/"><Photo name="safari" eager sizes="(max-width: 760px) 52vw, 24vw" /><span class="hero-card-label">Jeep safari <Icon name="arrow-up-right" size={15} /></span></a>
+        <a class="hero-card hero-card-sub" href="/swiss-tent/"><Photo name="tent" sizes="(max-width: 760px) 40vw, 15vw" /><span class="hero-card-label">Swiss tents <Icon name="arrow-up-right" size={15} /></span></a>
+        <p class="hero-badge"><Icon name="sparkle" size={15} />Real photos from our camp</p>
+      </div>
+    </div>
+    <div class="wrap hero-foot hero-in">
+      <a class="scroll-cue" href="#welcome"><span class="scroll-cue-line" aria-hidden="true"></span>Discover the camp</a>
+      <p class="hero-direct"><Icon name="phone" size={16} />Book direct with the camp · <a href={business.tel}>{business.phone}</a></p>
+    </div>
+  </section>
+
+  <Marquee />
+
+  <section id="welcome" class="section intro">
+    <div class="wrap intro-grid">
+      <div class="intro-copy" data-reveal>
+        <p class="eyebrow">Welcome to Pushkar Desert Safari</p>
+        <h2 class="statement">Some journeys are remembered for the places. Others, for the way they make you <em>feel.</em></h2>
+        <p class="lead">Here in Pushkar, find a little of both. Bring your sense of adventure for a desert safari, settle into a furnished Swiss tent, and discover the colour of Rajasthan through folk dance and fire performances.</p>
+        <Button href="/about-us/" variant="ghost-dark">Explore Our Camp</Button>
+      </div>
+      <div class="intro-media">
+        <figure class="intro-arch" data-reveal="mask"><Photo name="interior" sizes="(max-width: 860px) 60vw, 26vw" /></figure>
+        <figure class="intro-float" data-reveal="scale" style="--delay:160ms"><Photo name="pool" sizes="(max-width: 860px) 44vw, 17vw" /><figcaption>The camp pool</figcaption></figure>
+        <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="seal-circle" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0" /></defs><text><textPath href="#seal-circle">Adventure · Comfort · Culture · Rajasthan ·</textPath></text><path d="M60 42l4 14 14 4-14 4-4 14-4-14-14-4 14-4Z" class="seal-star" /></svg>
+      </div>
+    </div>
+    <ul class="wrap reasons">
+      {reasons.map((r, i) => <li data-reveal style={`--delay:${i * 80}ms`}><span class="reason-icon"><Icon name={r.icon} size={26} /></span><h3>{r.title}</h3><p>{r.text}</p></li>)}
+    </ul>
+  </section>
+
+  <section class="section tone-sand services">
+    <div class="wrap">
+      <SectionHead eyebrow="Explore" title="Our <em>experiences</em>" text="Adventure, comfort and culture — all in one place. Choose one, or bring them together for your own Pushkar story." align="split">
+        <Button href="/experiences/" variant="ghost-dark" size="sm">All experiences</Button>
+      </SectionHead>
+      <ExperienceCards />
+    </div>
+  </section>
+
+  <section class="section tone-dark story" data-story>
+    <div class="wrap">
+      <SectionHead eyebrow="A day at the camp" title="From golden sand to a <em>quiet desert night</em>" text="One way a visit can come together. Every stay is planned with you — ask the team what’s available for your dates." align="split" />
+      <div class="story-grid">
+        <div class="story-stage" aria-hidden="true">
+          <div class="story-frames">{day.map((d, i) => <div class:list={['story-frame', { 'is-active': i === 0 }]} data-frame={i}><Photo name={d.photo} sizes="44vw" decorative /></div>)}</div>
+          <div class="story-progress"><span class="story-count" data-story-count>01</span><span class="story-bar"><span data-story-bar></span></span><span>0{day.length}</span></div>
+        </div>
+        <ol class="story-steps">
+          {day.map((d, i) => (
+            <li class="story-step" data-step={i}>
+              <div class="story-step-media"><Photo name={d.photo} sizes="92vw" /></div>
+              <p class="story-label"><span>0{i + 1}</span>{d.label}</p>
+              <h3>{d.title}</h3>
+              <p>{d.text}</p>
+              <a class="text-link" href={d.href}>{d.link}<Icon name="arrow" size={16} /></a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tone-texture spotlight">
+    <div class="wrap spotlight-grid">
+      <div class="spotlight-media">
+        <figure class="spot-a" data-reveal="mask"><Photo name="interior" sizes="(max-width: 860px) 62vw, 28vw" /></figure>
+        <figure class="spot-b" data-reveal="scale" style="--delay:120ms"><Photo name="bedroom" sizes="(max-width: 860px) 56vw, 22vw" /><figcaption>Tent bedroom</figcaption></figure>
+        <figure class="spot-c" data-reveal="scale" style="--delay:220ms"><Photo name="washroom" sizes="(max-width: 860px) 34vw, 13vw" /><figcaption>Washroom</figcaption></figure>
+      </div>
+      <div class="spotlight-copy" data-reveal>
+        <p class="eyebrow">A little closer to nature</p>
+        <h2>Canvas outside. <em>Comfort within.</em></h2>
+        <p class="lead">After the adventure, enjoy a quieter side of Pushkar. Our furnished tents bring together the character of a camp stay and a welcoming space to rest.</p>
+        <ul class="check-list">{['Furnished tent bedrooms', 'Comfortable bedding & bedside lighting', 'Washroom facilities', 'Green, natural camp surroundings'].map(a => <li><Icon name="check" size={16} />{a}</li>)}</ul>
+        <div class="button-row"><Button href="/swiss-tent/">Explore Swiss Tents</Button><Button href="/camp-stay/" variant="ghost-dark">Camp Stay</Button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="culture">
+    <div class="culture-media" data-parallax><Photo name="cultureStill" sizes="100vw" decorative /></div>
+    <div class="wrap culture-grid">
+      <div class="culture-copy" data-reveal>
+        <p class="eyebrow">A night full of culture</p>
+        <h2>Folk dance <em>&amp; fire show</em></h2>
+        <p>As the day slows, Rajasthan’s vibrant traditions take centre stage. Colourful costumes, captivating movement and the warm glow of fire create an evening to remember.</p>
+        <Button href="/cultural-experiences/" variant="amber">Experience the Culture</Button>
+      </div>
+      <div class="culture-cards">
+        <figure class="culture-card culture-card-a" data-reveal="scale"><Photo name="fire" sizes="(max-width: 860px) 52vw, 22vw" /></figure>
+        <figure class="culture-card culture-card-b" data-reveal="scale" style="--delay:140ms"><Photo name="dance" sizes="(max-width: 860px) 42vw, 17vw" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <GalleryStrip eyebrow="Through our lens" title="Moments that make <em>memories</em>" text="Real places. Real adventures. A glimpse of life at Pushkar Desert Safari." items={['guests', 'interior', 'dancer', 'safari', 'pool', 'fire', 'group', 'tent', 'dance', 'bedroom']} tone="light" />
+
+  <Steps />
+  <BookingCTA />
+</Layout>

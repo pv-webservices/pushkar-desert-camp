@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+---
+<dialog id="lightbox" class="lightbox" aria-label="Photo gallery">
+  <div class="lightbox-shell">
+    <button type="button" class="lightbox-close round-btn" aria-label="Close photo gallery"><Icon name="close" /></button>
+    <div class="lightbox-image-wrap"><img id="lightbox-image" alt="" width="1600" height="1200" /></div>
+    <div class="lightbox-bottom">
+      <button type="button" class="lightbox-prev round-btn" aria-label="Previous photo"><Icon name="arrow" /></button>
+      <p id="lightbox-caption" aria-live="polite"></p>
+      <button type="button" class="lightbox-next round-btn" aria-label="Next photo"><Icon name="arrow" /></button>
+    </div>
+  </div>
+</dialog>

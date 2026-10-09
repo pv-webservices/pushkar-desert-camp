@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+import SplitFeature from '../components/SplitFeature.astro';
+import GalleryStrip from '../components/GalleryStrip.astro';
+import Steps from '../components/Steps.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+const pillars = [
+  { icon: 'jeep', title: 'Explore', text: 'Make space for an adventure beyond the everyday, with a desert safari in the landscape around Pushkar.', href: '/desert-safari/' },
+  { icon: 'tent', title: 'Unwind', text: 'Return to the quieter atmosphere of the camp, with tent bedrooms and green surroundings.', href: '/camp-stay/' },
+  { icon: 'flame', title: 'Discover', text: 'Enjoy the colour and expression of Rajasthani folk performances and evening entertainment.', href: '/cultural-experiences/' },
+];
+---
+<Layout title="About Us | Pushkar Desert Safari" description="Get to know Pushkar Desert Safari, bringing together jeep adventures, furnished tent accommodation and colourful Rajasthani cultural experiences." image="tent" preload="guests">
+  <PageHero eyebrow="About Us" title="A place for adventure. <em>A space to unwind.</em>" description="Welcome to Pushkar Desert Safari — where a journey through Rajasthan becomes a chance to explore, rest and reconnect." photo="guests" position="center 30%" inset="tent" insetLabel="Our Swiss tents" />
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHead eyebrow="The spirit of our camp" title="Three ways to feel a little closer to <em>Rajasthan.</em>" text="Adventure on a jeep safari. Comfort in a furnished Swiss tent. Culture through folk dance and fire performances. Bring them together for your own Pushkar experience." align="split" />
+      <div class="feature-cards">
+        {pillars.map((p, i) => <a class="feature-card" href={p.href} data-reveal style={`--delay:${i * 90}ms`}><span class="reason-icon"><Icon name={p.icon} size={26} /></span><h3>{p.title}</h3><p>{p.text}</p><span class="text-link feature-link">Learn more<Icon name="arrow" size={16} /></span></a>)}
+      </div>
+    </div>
+  </section>
+
+  <SplitFeature tone="sand" photo="chai" secondary="bedroom" shape="arch" eyebrow="Our kind of hospitality" title="The charm of a camp. <em>The comfort of a stay.</em>">
+    <p>The camp’s furnished tents, patterned interiors and natural setting offer a welcoming base for your time in Pushkar. Take a look inside, then get in touch to discuss your visit.</p>
+    <p>Whether you’re planning a desert safari, an overnight stay or a cultural evening for a group, the team will help you arrange the details directly.</p>
+    <div class="button-row"><Button href="/swiss-tent/">Discover Our Swiss Tents</Button><Button href="/gallery/" variant="ghost-dark">See the Gallery</Button></div>
+  </SplitFeature>
+
+  <GalleryStrip eyebrow="Our story, in photographs" title="People, places <em>&amp; moments</em>" text="A few authentic glimpses of the camp and its experiences." items={['guests', 'tent', 'dance', 'interior', 'safari', 'pool', 'group', 'fire']} />
+  <Steps />
+  <BookingCTA />
+</Layout>

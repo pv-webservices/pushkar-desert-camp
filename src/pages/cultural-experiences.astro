@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SplitFeature from '../components/SplitFeature.astro';
+import SectionHead from '../components/SectionHead.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import CrossSell from '../components/CrossSell.astro';
+import FAQ from '../components/FAQ.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import Button from '../components/Button.astro';
+---
+<Layout title="Folk Dance & Fire Show in Pushkar | Cultural Experiences" description="Discover colourful Rajasthani folk dance and fire performance photography at Pushkar Desert Safari. Enquire about cultural evenings for your visit." image="fire" preload="cultureStill">
+  <PageHero eyebrow="Cultural Experiences" title="Rajasthan, <em>in full colour.</em>" description="An evening of movement, tradition and torchlight. Discover the cultural side of Pushkar Desert Safari through genuine performance photographs." photo="cultureStill" inset="fire" insetLabel="Real fire performance" cta="Ask About a Cultural Evening" ctaHref="/contact-us/?service=Folk%20Dance%20%26%20Fire%20Show" />
+
+  <SplitFeature photo="dance" secondary="dancer" shape="arch" eyebrow="The rhythm of Rajasthan" title="A tradition <em>brought to life.</em>">
+    <p>Vibrant costumes, expressive movement and intricate embroidery are part of the beauty of Rajasthani folk dance. Our cultural photographs capture this colourful spirit at the camp.</p>
+    <p>Contact us to find out what performances can be arranged for the date of your visit.</p>
+    <div class="button-row"><Button href="/contact-us/?service=Folk%20Dance%20%26%20Fire%20Show">Plan a Cultural Evening</Button></div>
+  </SplitFeature>
+
+  <section class="section tone-dark">
+    <div class="wrap">
+      <SectionHead eyebrow="When the evening glows" title="Colour, culture <em>&amp; firelight</em>" text="Memorable moments from the cultural performances. Select a photograph to see the full image." align="split" />
+      <GalleryGrid items={['fire', 'dancer', 'dance']} variant="trio" />
+    </div>
+  </section>
+
+  <CrossSell current="/cultural-experiences/" />
+  <FAQ items={[
+    { q: 'Are performances available every evening?', a: 'Performance dates, timings and arrangements are confirmed directly with the team. Please check what is available for your preferred visit.' },
+    { q: 'Can I enquire about a cultural evening for a group?', a: 'Send your date and group size, and let the team know you are interested in folk dance or fire performances. They will discuss the available arrangements.' },
+    { q: 'Are cultural performances included in a stay?', a: 'Please ask the team about the inclusions of your particular stay or visit. No performance inclusion is guaranteed by this website.' },
+  ]} />
+  <BookingCTA />
+</Layout>

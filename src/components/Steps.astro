@@ -1,0 +1,15 @@
+---
+import { bookingSteps } from '../data/site';
+import SectionHead from './SectionHead.astro';
+import Button from './Button.astro';
+---
+<section class="section steps-section tone-texture">
+  <div class="wrap">
+    <SectionHead eyebrow="Booking is simple" title="Plan your visit in <em>three easy steps</em>" text="There’s no complicated booking engine — just a direct conversation with the team at the camp." align="split">
+      <Button>Start Your Enquiry</Button>
+    </SectionHead>
+    <ol class="steps">
+      {bookingSteps.map((s, i) => <li class="step" data-reveal style={`--delay:${i * 110}ms`}><span class="step-num">0{i + 1}</span><h3>{s.title}</h3><p>{s.text}</p></li>)}
+    </ol>
+  </div>
+</section>

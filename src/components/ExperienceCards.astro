@@ -1,0 +1,22 @@
+---
+import { experiences } from '../data/site';
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+interface Props { exclude?: string[]; layout?: 'bento' | 'row' }
+const { exclude = [], layout = 'bento' } = Astro.props;
+const items = experiences.filter(e => !exclude.includes(e.href));
+---
+<div class:list={['exp-grid', `exp-${layout}`]}>
+  {items.map((e, i) => (
+    <a href={e.href} class="exp-card" data-reveal style={`--delay:${i * 80}ms`}>
+      <span class="exp-media"><Photo name={e.photo} sizes={layout === 'bento' && i === 0 ? '(max-width: 760px) 92vw, 46vw' : '(max-width: 760px) 92vw, (max-width: 1100px) 46vw, 24vw'} /></span>
+      <span class="exp-tag"><Icon name={e.icon} size={16} />{e.tag}</span>
+      <span class="exp-body">
+        <span class="exp-num">0{i + 1}</span>
+        <span class="exp-title">{e.title}</span>
+        <span class="exp-text">{e.short}</span>
+      </span>
+      <span class="exp-arrow"><Icon name="arrow-up-right" size={20} /></span>
+    </a>
+  ))}
+</div>

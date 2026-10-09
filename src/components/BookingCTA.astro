@@ -1,0 +1,25 @@
+---
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+import { business } from '../data/site';
+---
+<section class="booking">
+  <div class="booking-media" data-parallax><Photo name="nightSky" sizes="100vw" decorative /></div>
+  <div class="wrap booking-inner">
+    <div class="booking-copy" data-reveal>
+      <p class="eyebrow">Your next Rajasthan memory</p>
+      <h2>Plan your Pushkar <em>desert experience</em></h2>
+      <p>Connect with us for safari experiences, camp stays and group enquiries. Share your dates and we’ll confirm availability and the current details directly.</p>
+      <div class="button-row">
+        <Button variant="amber">Plan Your Visit</Button>
+        <Button href={business.whatsapp} variant="ghost-light" icon="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp Enquiry<span class="sr-only"> (opens in a new tab)</span></Button>
+      </div>
+    </div>
+    <div class="booking-contacts" data-reveal style="--delay:120ms">
+      <a href={business.tel}><span class="icon-pill"><Icon name="phone" size={18} /></span><span><small>Call us</small>{business.phone}</span></a>
+      <a href={`mailto:${business.email}`}><span class="icon-pill"><Icon name="mail" size={18} /></span><span><small>Email</small>{business.email}</span></a>
+      <p><span class="icon-pill"><Icon name="pin" size={18} /></span><span><small>Find us in</small>{business.location}</span></p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SplitFeature from '../components/SplitFeature.astro';
+import SectionHead from '../components/SectionHead.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import CrossSell from '../components/CrossSell.astro';
+import FAQ from '../components/FAQ.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+---
+<Layout title="Swiss Tent Stay in Pushkar | Tent Accommodation" description="Explore genuine Swiss tent exteriors, furnished bedrooms and washroom photographs at Pushkar Desert Safari. Contact us for accommodation enquiries." image="interior">
+  <PageHero variant="split" eyebrow="Swiss Tent" title="Under canvas. <em>Wrapped in comfort.</em>" description="A stay with its own character. Discover the patterned interiors, furnished bedrooms and natural surroundings of our Swiss tents." photo="interior" cta="Enquire About a Swiss Tent" ctaHref="/contact-us/?service=Swiss%20Tent%20Stay" />
+
+  <SplitFeature photo="bedroom" secondary="washroom" eyebrow="Inside your stay" title="Small details. <em>A welcoming space.</em>">
+    <p>White bedding, maroon cushions and bedside lighting sit against patterned canvas walls. The photographs show a simple, comfortable place to rest during your time in Pushkar.</p>
+    <ul class="check-list">{['Furnished bedroom', 'Bedding & bedside lamps', 'Seating in the tent surroundings', 'Washroom facilities shown in the gallery'].map(a => <li><Icon name="check" size={16} />{a}</li>)}</ul>
+  </SplitFeature>
+
+  <SplitFeature tone="sand" photo="tent" reverse shape="arch" eyebrow="Step outside" title="A little shade. <em>A little stillness.</em>">
+    <p>The tents sit among the camp’s green surroundings, with an outdoor setting that invites a slower pace. Take a moment to enjoy the space between your adventures.</p>
+    <p>Ask the team about the specific tent and facilities available for your dates.</p>
+    <div class="button-row"><Button href="/contact-us/?service=Swiss%20Tent%20Stay">Check Your Dates</Button></div>
+  </SplitFeature>
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHead eyebrow="See the real spaces" title="Your stay, <em>in photographs</em>" text="Bedroom interiors, tent exterior and washroom facilities." align="split" />
+      <GalleryGrid items={['interior', 'washroom', 'tent']} variant="trio" />
+    </div>
+  </section>
+
+  <CrossSell current="/swiss-tent/" />
+  <FAQ items={[
+    { q: 'What can I see in the tent photographs?', a: 'The supplied photographs show furnished bedrooms with bedding and bedside lamps, patterned interiors, a tent exterior and washroom facilities.' },
+    { q: 'What facilities are available for my stay?', a: 'Please confirm the particular tent, washroom arrangements and all other facilities directly with the team before booking. The photographs are a guide to the camp spaces.' },
+    { q: 'Is my preferred date available?', a: 'Contact us with your preferred date and guest count. An enquiry does not reserve accommodation; the team will confirm availability and booking arrangements.' },
+  ]} />
+  <BookingCTA />
+</Layout>

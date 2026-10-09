@@ -1,0 +1,15 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import { photos, galleryKeys, type PhotoKey } from '../data/site';
+interface Props { items?: PhotoKey[]; variant?: 'masonry' | 'trio' | 'strip' }
+const { items = galleryKeys, variant = 'masonry' } = Astro.props;
+---
+<div class:list={['gallery', `gallery-${variant}`]} data-gallery-track={variant === 'strip' ? '' : undefined}>
+  {items.map((key, i) => (
+    <button type="button" class="gallery-item" data-reveal={variant === 'strip' ? undefined : ''} data-category={photos[key].category} data-gallery-src={`/images/${photos[key].id}-1600.webp`} data-caption={photos[key].alt} aria-label={`View photo: ${photos[key].alt}`} style={`--delay:${(i % 4) * 60}ms`}>
+      <Photo name={key} sizes={variant === 'strip' ? '(max-width: 760px) 78vw, 30vw' : '(max-width: 760px) 92vw, (max-width: 1100px) 46vw, 32vw'} />
+      <span class="gallery-overlay"><span class="gallery-cat">{photos[key].category}</span><span class="gallery-zoom"><Icon name="arrow-up-right" size={18} /></span></span>
+    </button>
+  ))}
+</div>

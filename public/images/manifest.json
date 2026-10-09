@@ -1,0 +1,62 @@
+{
+  "photo-1": {
+    "source": "pushkar image-1.jpeg",
+    "width": 896,
+    "height": 1042
+  },
+  "photo-2a": {
+    "source": "pushkar image-2a.jpeg",
+    "width": 1600,
+    "height": 1200
+  },
+  "photo-2b": {
+    "source": "pushkar image-2b.jpeg",
+    "width": 1200,
+    "height": 1600
+  },
+  "photo-2c": {
+    "source": "pushkar image-2c.jpeg",
+    "width": 1600,
+    "height": 1200
+  },
+  "photo-3a": {
+    "source": "pushkar image-3a.jpeg",
+    "width": 1600,
+    "height": 1204
+  },
+  "photo-3b": {
+    "source": "pushkar image-3b.jpeg",
+    "width": 960,
+    "height": 1280
+  },
+  "photo-4a": {
+    "source": "pushkar image-4a.jpeg",
+    "width": 1206,
+    "height": 1252
+  },
+  "photo-4b": {
+    "source": "pushkar image-4b.jpeg",
+    "width": 1206,
+    "height": 1483
+  },
+  "photo-4c": {
+    "source": "pushkar image-4c.jpeg",
+    "width": 1081,
+    "height": 1184
+  },
+  "photo-5": {
+    "source": "pushkar image-5.jpeg",
+    "width": 960,
+    "height": 1280
+  },
+  "photo-6": {
+    "source": "pushkar image-6.jpeg",
+    "width": 1206,
+    "height": 1431
+  },
+  "photo-7": {
+    "source": "pushkar image-7.jpeg",
+    "width": 896,
+    "height": 1195
+  }
+}

@@ -1,0 +1,67 @@
+---
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/600.css';
+import '@fontsource/cormorant-garamond/500-italic.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/components.css';
+import '../styles/sections.css';
+import '../styles/pages.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Lightbox from '../components/Lightbox.astro';
+import ContactDock from '../components/ContactDock.astro';
+import { business, photos, type PhotoKey } from '../data/site';
+// Critical fonts for the hero heading and body copy, preloaded to avoid late swaps.
+import serifDisplay from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2?url';
+import serifItalic from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2?url';
+import sansBody from '@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2?url';
+interface Props { title: string; description: string; image?: PhotoKey; noindex?: boolean; preload?: PhotoKey }
+const { title, description, image = 'safari', noindex = false, preload } = Astro.props;
+const site = Astro.site;
+const canonical = site ? new URL(Astro.url.pathname, site).href : undefined;
+const social = site ? new URL(`/images/${photos[image].id}-1600.webp`, site).href : undefined;
+const schema = { '@context': 'https://schema.org', '@type': 'LodgingBusiness', name: business.name, ...(site ? { url: site.href } : {}), telephone: '+919116991219', email: business.email, address: { '@type': 'PostalAddress', addressLocality: 'Pushkar', addressRegion: 'Rajasthan', addressCountry: 'IN' } };
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: site?.href }, { '@type': 'ListItem', position: 2, name: title.split(' | ')[0], item: canonical }] };
+const pre = preload ? photos[preload] : undefined;
+const preWidths = pre ? pre.widths.filter((w, i) => w <= pre.w || (i > 0 && pre.widths[i - 1] < pre.w)) : [];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fbf6ec" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content={noindex || !site ? 'noindex, nofollow' : 'index, follow'} />
+  {canonical && <link rel="canonical" href={canonical} />}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={business.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  {canonical && <meta property="og:url" content={canonical} />}
+  {social && <meta property="og:image" content={social} />}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  {social && <meta name="twitter:image" content={social} />}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  {[serifDisplay, serifItalic, sansBody].map(href => <link rel="preload" as="font" type="font/woff2" href={href} crossorigin />)}
+  {pre && <link rel="preload" as="image" type="image/webp" imagesrcset={preWidths.map(w => `/images/${pre.id}-${w}.webp ${Math.min(w, pre.w)}w`).join(', ')} imagesizes="100vw" fetchpriority="high" />}
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  {site && Astro.url.pathname !== '/' && <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />}
+  <script is:inline>document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.add('is-loaded')},2500);</script>
+</head>
+<body>
+  <Header />
+  <main id="main"><slot /></main>
+  <Footer />
+  <ContactDock />
+  <Lightbox />
+  <script src="../scripts/site.ts"></script>
+</body>
+</html>

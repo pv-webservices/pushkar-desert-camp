@@ -1,0 +1,112 @@
+{
+  "ai-safari-dunes": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Desert Safari page hero background",
+    "alt": "Wind-rippled dune ridge crossed by fresh jeep tracks in late afternoon light",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-safari-dunes-768.webp",
+      "ai-safari-dunes-1280.webp",
+      "ai-safari-dunes-1600.webp"
+    ]
+  },
+  "ai-hero-dunes": {
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "high",
+    "size": "1536x1024",
+    "placement": "Home hero, full-bleed background behind headline and real photo cards",
+    "alt": "Golden-hour sand dunes with tyre tracks and low Aravalli hills near Pushkar",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-hero-dunes-768.webp",
+      "ai-hero-dunes-1280.webp",
+      "ai-hero-dunes-1600.webp"
+    ]
+  },
+  "ai-night-sky": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "high",
+    "size": "1536x1024",
+    "placement": "Home \"A day at the camp\" night step and closing booking band background",
+    "alt": "Starry night sky and the Milky Way above quiet desert dunes",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-night-sky-768.webp",
+      "ai-night-sky-1280.webp",
+      "ai-night-sky-1600.webp"
+    ]
+  },
+  "ai-culture-still": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Cultural Experiences page hero background",
+    "alt": "Mirror-work textile, brass ankle bells and a dholak drum glowing in firelight",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-culture-still-768.webp",
+      "ai-culture-still-1280.webp",
+      "ai-culture-still-1600.webp"
+    ]
+  },
+  "ai-lantern-dusk": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1024x1536",
+    "placement": "Contact page hero visual",
+    "alt": "A glowing brass lantern resting on sand at dusk",
+    "width": 1024,
+    "height": 1536,
+    "files": [
+      "ai-lantern-dusk-768.webp",
+      "ai-lantern-dusk-1280.webp",
+      "ai-lantern-dusk-1600.webp"
+    ]
+  },
+  "ai-chai-welcome": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1024x1536",
+    "placement": "About page hospitality feature",
+    "alt": "Masala chai in clay cups on a brass tray over a block-printed cotton rug",
+    "width": 1024,
+    "height": 1536,
+    "files": [
+      "ai-chai-welcome-768.webp",
+      "ai-chai-welcome-1280.webp",
+      "ai-chai-welcome-1600.webp"
+    ]
+  },
+  "ai-aravalli-sunrise": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Experiences page hero background",
+    "alt": "Sunrise over the misty Aravalli hills with desert scrub in the foreground",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-aravalli-sunrise-768.webp",
+      "ai-aravalli-sunrise-1280.webp",
+      "ai-aravalli-sunrise-1600.webp"
+    ]
+  },
+  "ai-blockprint": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1024x1024",
+    "placement": "Low-opacity decorative texture for light sections and footer",
+    "alt": "",
+    "width": 1024,
+    "height": 1024,
+    "files": [
+      "ai-blockprint-560.webp"
+    ]
+  }
+}

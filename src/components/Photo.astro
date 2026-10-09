@@ -1,0 +1,16 @@
+---
+import { photos, type PhotoKey } from '../data/site';
+interface Props { name: PhotoKey; class?: string; eager?: boolean; sizes?: string; alt?: string; decorative?: boolean }
+const { name, class: className = '', eager = false, sizes = '(max-width: 760px) 100vw, 50vw', alt, decorative = false } = Astro.props;
+const p = photos[name];
+// Offer each width once, never claiming more pixels than the source holds.
+const usable = p.widths.filter((w, i) => w <= p.w || (i > 0 && p.widths[i - 1] < p.w));
+const srcset = usable.map(w => `/images/${p.id}-${w}.webp ${Math.min(w, p.w)}w`).join(', ');
+const fallback = `/images/${p.id}-${usable.includes(960) ? 960 : usable.includes(1280) ? 1280 : usable[usable.length - 1]}.webp`;
+const crop = name === 'fire' || name === 'dancer' ? `crop-${name}` : '';
+---
+{crop ? (
+  <span class:list={['photo-frame', crop]}><img class={className} src={fallback} srcset={srcset} sizes={sizes} width={p.w} height={p.h} alt={decorative ? '' : alt ?? p.alt} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" /></span>
+) : (
+  <img class={className} src={fallback} srcset={srcset} sizes={sizes} width={p.w} height={p.h} alt={decorative ? '' : alt ?? p.alt} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" />
+)}

@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+import Button from './Button.astro';
+import { business } from '../data/site';
+interface Props { items: { q: string; a: string }[] }
+const { items } = Astro.props;
+---
+<section class="section tone-sand faq-section">
+  <div class="wrap faq-layout">
+    <div class="faq-intro" data-reveal>
+      <p class="eyebrow">A few helpful details</p>
+      <h2>Before you <em>visit</em></h2>
+      <p>We’ll help you plan the experience that suits your visit. Contact us for current details and availability.</p>
+      <div class="faq-contact">
+        <a href={business.tel}><Icon name="phone" size={18} />{business.phone}</a>
+        <Button href={business.whatsapp} variant="ghost-dark" size="sm" icon="whatsapp" target="_blank" rel="noopener noreferrer">Ask on WhatsApp<span class="sr-only"> (opens in a new tab)</span></Button>
+      </div>
+    </div>
+    <div class="faq-list" data-reveal>
+      {items.map((item, i) => <details open={i === 0}><summary><span>{item.q}</span><span class="faq-icon" aria-hidden="true"></span></summary><div class="faq-answer"><p>{item.a}</p></div></details>)}
+    </div>
+  </div>
+</section>
