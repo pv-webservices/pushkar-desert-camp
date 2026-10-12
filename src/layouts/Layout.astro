@@ -19,13 +19,16 @@ import { business, photos, type PhotoKey } from '../data/site';
 import serifDisplay from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2?url';
 import serifItalic from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2?url';
 import sansBody from '@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2?url';
-interface Props { title: string; description: string; image?: PhotoKey; noindex?: boolean; preload?: PhotoKey }
-const { title, description, image = 'safari', noindex = false, preload } = Astro.props;
+type Crumb = { name: string; path: string };
+interface Props { title: string; description: string; image?: PhotoKey; noindex?: boolean; preload?: PhotoKey; crumbs?: Crumb[]; schema?: Record<string, unknown>[] }
+const { title, description, image = 'safari', noindex = false, preload, crumbs, schema: pageSchema = [] } = Astro.props;
 const site = Astro.site;
 const canonical = site ? new URL(Astro.url.pathname, site).href : undefined;
 const social = site ? new URL(`/images/${photos[image].id}-1600.webp`, site).href : undefined;
 const schema = { '@context': 'https://schema.org', '@type': 'LodgingBusiness', name: business.name, ...(site ? { url: site.href } : {}), telephone: '+919116991219', email: business.email, address: { '@type': 'PostalAddress', addressLocality: 'Pushkar', addressRegion: 'Rajasthan', addressCountry: 'IN' } };
-const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: site?.href }, { '@type': 'ListItem', position: 2, name: title.split(' | ')[0], item: canonical }] };
+// Pages deeper than one level pass their own trail (e.g. Home › Services › Camel Safari).
+const trail: Crumb[] = [{ name: 'Home', path: '/' }, ...(crumbs ?? [{ name: title.split(' | ')[0], path: Astro.url.pathname }])];
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: trail.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: site ? new URL(c.path, site).href : undefined })) };
 const pre = preload ? photos[preload] : undefined;
 const preWidths = pre ? pre.widths.filter((w, i) => w <= pre.w || (i > 0 && pre.widths[i - 1] < pre.w)) : [];
 ---
@@ -54,6 +57,7 @@ const preWidths = pre ? pre.widths.filter((w, i) => w <= pre.w || (i > 0 && pre.
   {pre && <link rel="preload" as="image" type="image/webp" imagesrcset={preWidths.map(w => `/images/${pre.id}-${w}.webp ${Math.min(w, pre.w)}w`).join(', ')} imagesizes="100vw" fetchpriority="high" />}
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   {site && Astro.url.pathname !== '/' && <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />}
+  {pageSchema.map(item => <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', ...item })} />)}
   <script is:inline>document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.add('is-loaded')},2500);</script>
 </head>
 <body>

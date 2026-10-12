@@ -1,0 +1,130 @@
+import type { ContentPage } from './content-types';
+
+// Ajmer guides. Ajmer is the railway gateway to Pushkar (about 15 km over Nag Pahar),
+// so these pages capture day-trip searches and link back to the Pushkar experiences.
+export const ajmerGuides: ContentPage[] = [
+  {
+    path: '/top-attractions-in-ajmer/',
+    category: 'Explore Ajmer',
+    label: 'Top Attractions in Ajmer',
+    cardText: 'The must-see places in Ajmer, from the Dargah to Ana Sagar Lake.',
+    icon: 'pin',
+    eyebrow: 'Ajmer Travel Guide',
+    title: 'Top attractions in Ajmer, <em>just over the hill from Pushkar.</em>',
+    metaTitle: 'Top Attractions in Ajmer | 10 Best Places to Visit in Ajmer',
+    metaDescription: 'Discover the top attractions in Ajmer: Ajmer Sharif Dargah, Adhai Din Ka Jhonpra, Ana Sagar Lake, Soniji ki Nasiyan, Taragarh Fort, Akbar’s Palace and more, a short drive from Pushkar.',
+    lead: 'Ajmer and Pushkar sit on either side of Nag Pahar, the Snake Mountain. While Pushkar is the holy desert town, Ajmer is a historic city of shrines, lakes and forts, and it makes an easy day trip.',
+    photo: 'sunrise',
+    sections: [
+      { heading: '1. Ajmer Sharif Dargah', paragraphs: ['The shrine of the Sufi saint Khwaja Moinuddin Chishti is one of the most important pilgrimage sites in South Asia, visited by people of all faiths. Read our full <a href="/ajmer-sharif-dargah/">Ajmer Sharif Dargah guide</a>.'] },
+      { heading: '2. Adhai Din Ka Jhonpra', paragraphs: ['A short walk from the Dargah, this 12th-century mosque is one of the oldest in India, known for its finely carved pillars and arched screen. Its name means “the hut of two and a half days”.'] },
+      { heading: '3. Ana Sagar Lake', paragraphs: ['This large artificial lake was built in the 12th century. The marble pavilions (baradari) on its embankment were added by the Mughal emperor Shah Jahan, and the adjoining Daulat Bagh garden is a pleasant place for an evening stroll.'] },
+      { heading: '4. Soniji ki Nasiyan (Jain Temple)', paragraphs: ['This 19th-century Jain temple is famous for its Swarna Nagari hall, a dazzling gilded depiction of the Jain universe.'] },
+      { heading: '5. Taragarh Fort', paragraphs: ['Perched on a hill above the city, this ancient fort offers sweeping views over Ajmer. The road up is steep; allow time for the journey.'] },
+      { heading: '6. Akbar’s Palace and Museum', paragraphs: ['Built by Emperor Akbar, this fort-palace in the city centre now houses the Government Museum, with sculptures, weapons and miniature paintings.'] },
+      { heading: '7. Foy Sagar Lake', paragraphs: ['A quieter lake on the edge of the city, with views of the hills and a popular sunset spot.'] },
+      { heading: '8. Prithviraj Smarak', paragraphs: ['A hilltop memorial to Prithviraj Chauhan, the celebrated Rajput king, with views over the surrounding hills.'] },
+      { heading: 'Getting from Ajmer to Pushkar', paragraphs: [
+        'Pushkar is roughly 15 km from Ajmer by road over Nag Pahar. Ajmer Junction is the main railway station for travellers to Pushkar, and Kishangarh airport is the nearest airport. Spend the day in Ajmer and the evening in the desert with a <a href="/services/camel-safari-pushkar/">camel safari</a> and a <a href="/services/night-camping-pushkar/">night camp</a>.',
+      ] },
+    ],
+    faqs: [
+      { q: 'Can I visit Ajmer and Pushkar in one day?', a: 'Yes, the two towns are close together. A full day lets you see the Dargah and a few Ajmer sights in the morning and Pushkar in the afternoon and evening.' },
+      { q: 'What is Ajmer famous for?', a: 'Ajmer is best known for Ajmer Sharif Dargah, as well as Ana Sagar Lake, Adhai Din Ka Jhonpra, Taragarh Fort and Soniji ki Nasiyan.' },
+      { q: 'What is the best time to visit Ajmer?', a: 'October to March is the most comfortable season for sightseeing.' },
+    ],
+    related: ['/ajmer-sharif-dargah/', '/things-to-do-in-ajmer/', '/things-to-do-in-pushkar/'],
+    enquiry: 'Safari & Stay',
+    ctaLabel: 'Plan Your Ajmer & Pushkar Trip',
+  },
+  {
+    path: '/things-to-do-in-ajmer/',
+    category: 'Explore Ajmer',
+    label: 'Things To Do in Ajmer',
+    cardText: 'Experiences, food and itineraries for a day or two in Ajmer.',
+    icon: 'sparkle',
+    eyebrow: 'Ajmer Itinerary',
+    title: 'Things to do in Ajmer: <em>a one-day itinerary.</em>',
+    metaTitle: 'Things To Do in Ajmer | One-Day Ajmer Itinerary & Food Guide',
+    metaDescription: 'The best things to do in Ajmer: attend qawwali at the Dargah, walk the old city, boat on Ana Sagar Lake, taste sohan halwa and continue to Pushkar for a desert evening.',
+    lead: 'Ajmer rewards curious travellers with Sufi music, old bazaars, lakeside sunsets and centuries of history. Here is how to spend a well-planned day, and end it in the desert near Pushkar.',
+    photo: 'chai',
+    position: 'center 60%',
+    sections: [
+      { heading: 'Morning: the Dargah and the old city', paragraphs: [
+        'Start early at <a href="/ajmer-sharif-dargah/">Ajmer Sharif Dargah</a>, before the crowds build. Afterwards walk to Adhai Din Ka Jhonpra and explore the lanes around the shrine, full of rose petals, chadar sellers, attar (perfume) shops and sweet stalls.',
+      ] },
+      { heading: 'Late morning: Akbar’s Palace and Soniji ki Nasiyan', paragraphs: [
+        'Visit the Government Museum in Akbar’s Palace, then the gilded Swarna Nagari hall at Soniji ki Nasiyan Jain temple.',
+      ] },
+      { heading: 'Afternoon: lakes and views', paragraphs: [
+        'Relax at Ana Sagar Lake and Daulat Bagh, take a boat ride if available, or head up to Taragarh Fort or Prithviraj Smarak for views over the city.',
+      ] },
+      { heading: 'Evening: qawwali or the desert', paragraphs: [
+        'Stay for the soulful qawwali sessions at the Dargah, which are especially popular on Thursday evenings, or drive over the hill to Pushkar for a sunset <a href="/services/camel-safari-pushkar/">camel safari</a>, a <a href="/cultural-experiences/">folk dance and fire show</a> and a <a href="/services/night-camping-pushkar/">night at our desert camp</a>.',
+      ] },
+      { heading: 'What to eat in Ajmer', paragraphs: ['Do not leave without trying:'], list: [
+        '<strong>Sohan halwa</strong>: Ajmer’s famous dense, nutty sweet',
+        '<strong>Kadhi kachori</strong> and other Rajasthani breakfast snacks',
+        '<strong>Biryani and kebabs</strong> in the Dargah Bazaar area',
+        '<strong>Rabri and kulfi</strong> to cool down in the afternoon',
+      ] },
+    ],
+    faqs: [
+      { q: 'How many days do I need in Ajmer?', a: 'One full day covers the main sights. Many travellers base themselves in Pushkar and visit Ajmer as a day trip.' },
+      { q: 'Is Ajmer worth visiting?', a: 'Yes, especially for the Dargah, its Sufi music traditions and the city’s history. It pairs perfectly with Pushkar.' },
+      { q: 'What should I buy in Ajmer?', a: 'Popular buys include attar (traditional perfume), sohan halwa, rose products and textiles from the old bazaars.' },
+    ],
+    related: ['/top-attractions-in-ajmer/', '/ajmer-sharif-dargah/', '/things-to-do-in-pushkar/'],
+    enquiry: 'Safari & Stay',
+    ctaLabel: 'Plan Your Ajmer & Pushkar Trip',
+  },
+  {
+    path: '/ajmer-sharif-dargah/',
+    category: 'Explore Ajmer',
+    label: 'Dargah Shariff Ajmer',
+    cardText: 'History, etiquette and visiting tips for Ajmer Sharif Dargah.',
+    icon: 'moon',
+    eyebrow: 'Ajmer Sharif Dargah',
+    title: 'Ajmer Sharif Dargah: <em>a visitor’s guide.</em>',
+    metaTitle: 'Ajmer Sharif Dargah | History, Urs, Qawwali & Visiting Tips',
+    metaDescription: 'Visiting Ajmer Sharif Dargah of Khwaja Moinuddin Chishti? History, the Urs festival, qawwali, dress code and etiquette, and how to combine your visit with Pushkar.',
+    lead: 'For more than eight centuries, pilgrims of every faith have come to Ajmer to pay their respects at the shrine of Khwaja Moinuddin Chishti, lovingly known as Gharib Nawaz, “benefactor of the poor”.',
+    photo: 'lantern',
+    position: 'center 65%',
+    sections: [
+      { heading: 'History of the Dargah', paragraphs: [
+        'Khwaja Moinuddin Chishti was a Persian-born Sufi saint who settled in Ajmer in the late 12th century and spread a message of love, tolerance and service to humanity. After his death in 1236, his tomb became a place of pilgrimage. Mughal emperors, including Akbar and Shah Jahan, visited and endowed the shrine.',
+      ] },
+      { heading: 'What to see inside', paragraphs: ['Highlights of the Dargah complex include:'], list: [
+        '<strong>Nizam Gate and Buland Darwaza</strong>: the grand entrance gateways',
+        '<strong>The degs</strong>: two enormous cauldrons in which food is cooked and distributed',
+        '<strong>Akbari Masjid and Shahjahani Masjid</strong>: Mughal-era mosques within the complex',
+        '<strong>Mehfil Khana</strong>: the hall associated with qawwali gatherings',
+        '<strong>The tomb of the saint</strong>: the sanctum beneath the domed mausoleum',
+      ] },
+      { heading: 'The Urs festival', paragraphs: [
+        'The Urs, marking the saint’s death anniversary, is held over the first days of the Islamic month of Rajab and draws enormous crowds. Because the Islamic calendar is lunar, Urs dates move earlier each year; check the announcement from the Dargah committee before planning a visit.',
+      ] },
+      { heading: 'Etiquette and dress code', paragraphs: ['To visit respectfully:'], list: [
+        'Cover your head (scarves and caps are sold near the entrance)',
+        'Wear modest clothing covering shoulders and legs',
+        'Remove your shoes before entering; footwear stands are available',
+        'Carry minimal belongings, as bags may be restricted',
+        'Be prepared for crowds and keep valuables safe',
+        'Thursday evenings and Fridays are especially busy',
+      ] },
+      { heading: 'Combine with Pushkar', paragraphs: [
+        'The Dargah is about a half-hour drive from Pushkar. Visit in the morning and spend the evening at our desert camp with a <a href="/services/jeep-safari-pushkar/">jeep safari</a>, dinner and a <a href="/cultural-experiences/">cultural evening</a>. See our guide to <a href="/top-attractions-in-ajmer/">top attractions in Ajmer</a> for more ideas.',
+      ] },
+    ],
+    faqs: [
+      { q: 'Who can visit Ajmer Sharif Dargah?', a: 'People of all faiths are welcome, provided they follow the dress code and etiquette of the shrine.' },
+      { q: 'What is the best time to visit the Dargah?', a: 'Early mornings are usually calmer. Thursday evenings are known for qawwali but are very busy.' },
+      { q: 'How far is Ajmer Sharif from Pushkar?', a: 'Ajmer is roughly 15 km from Pushkar by road, typically about half an hour’s drive depending on traffic.' },
+    ],
+    related: ['/top-attractions-in-ajmer/', '/things-to-do-in-ajmer/', '/brahma-temple-pushkar/'],
+    enquiry: 'Safari & Stay',
+    ctaLabel: 'Plan Your Ajmer & Pushkar Trip',
+  },
+];

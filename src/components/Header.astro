@@ -4,14 +4,20 @@ import { business } from '../data/site';
 const path = Astro.url.pathname;
 const current = (url: string) => (path === url ? 'page' : undefined);
 const within = (urls: string[]) => urls.includes(path);
-const experienceLinks = [
-  { href: '/experiences/', label: 'All Experiences', note: 'Adventure, stay & culture' },
-  { href: '/desert-safari/', label: 'Desert Safari', note: 'Jeep adventures around Pushkar' },
+const serviceLinks = [
+  { href: '/services/', label: 'All Services', note: 'Safaris, camps & culture' },
+  { href: '/services/camel-safari-pushkar/', label: 'Camel Safari', note: 'Sunset rides on the dunes' },
+  { href: '/services/jeep-safari-pushkar/', label: 'Jeep Safari', note: 'Open-top desert adventures' },
+  { href: '/desert-safari/', label: 'Desert Safari', note: 'Camel, jeep & night safaris' },
+  { href: '/services/night-safari-pushkar/', label: 'Night Safari', note: 'The desert after dark' },
+  { href: '/services/jungle-safari-pushkar/', label: 'Jungle Safari', note: 'Aravalli wildlife & birds' },
   { href: '/cultural-experiences/', label: 'Folk Dance & Fire Show', note: 'Rajasthan’s cultural evenings' },
 ];
 const stayLinks = [
   { href: '/camp-stay/', label: 'Camp Stay', note: 'Peaceful camp surroundings' },
-  { href: '/swiss-tent/', label: 'Swiss Tent', note: 'Furnished canvas comfort' },
+  { href: '/swiss-tent/', label: 'Swiss Tent on Rent', note: 'Furnished canvas comfort' },
+  { href: '/services/night-camping-pushkar/', label: 'Night Camping', note: 'Campfire & starry skies' },
+  { href: '/services/mobile-camping/', label: 'Mobile Camping', note: 'Camps for groups & events' },
   { href: '/camp-stay/#poolside', label: 'Poolside', note: 'A quiet moment by the pool' },
 ];
 ---
@@ -23,12 +29,12 @@ const stayLinks = [
       <a class="nav-link" href="/" aria-current={current('/')}>Home</a>
       <a class="nav-link" href="/about-us/" aria-current={current('/about-us/')}>About</a>
       <div class="nav-group">
-        <a class:list={['nav-link', { 'is-section': within(['/experiences/', '/desert-safari/', '/cultural-experiences/']) }]} href="/experiences/" aria-current={current('/experiences/')}>Experiences</a>
-        <button class="dropdown-toggle" type="button" aria-label="Show experience pages" aria-expanded="false" aria-controls="experience-menu"><Icon name="chevron" size={14} /></button>
-        <div id="experience-menu" class="dropdown">{experienceLinks.map(l => <a href={l.href}><strong>{l.label}</strong><span>{l.note}</span></a>)}</div>
+        <a class:list={['nav-link', { 'is-section': within(['/experiences/', '/desert-safari/', '/cultural-experiences/']) || (path.startsWith('/services/') && !within(stayLinks.map(l => l.href))) }]} href="/services/" aria-current={current('/services/')}>Services</a>
+        <button class="dropdown-toggle" type="button" aria-label="Show service pages" aria-expanded="false" aria-controls="service-menu"><Icon name="chevron" size={14} /></button>
+        <div id="service-menu" class="dropdown">{serviceLinks.map(l => <a href={l.href}><strong>{l.label}</strong><span>{l.note}</span></a>)}</div>
       </div>
       <div class="nav-group">
-        <a class:list={['nav-link', { 'is-section': within(['/camp-stay/', '/swiss-tent/']) }]} href="/camp-stay/" aria-current={current('/camp-stay/')}>Stay</a>
+        <a class:list={['nav-link', { 'is-section': within(['/camp-stay/', '/swiss-tent/', '/services/night-camping-pushkar/', '/services/mobile-camping/']) }]} href="/camp-stay/" aria-current={current('/camp-stay/')}>Stay</a>
         <button class="dropdown-toggle" type="button" aria-label="Show accommodation pages" aria-expanded="false" aria-controls="stay-menu"><Icon name="chevron" size={14} /></button>
         <div id="stay-menu" class="dropdown">{stayLinks.map(l => <a href={l.href}><strong>{l.label}</strong><span>{l.note}</span></a>)}</div>
       </div>

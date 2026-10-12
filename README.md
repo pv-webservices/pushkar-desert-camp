@@ -25,8 +25,23 @@ npm run preview      # serve dist/
 | Cultural Experiences | `/cultural-experiences/` | Firelit still life + real performer inset |
 | Gallery | `/gallery/` | Filterable masonry + lightbox |
 | Contact & Booking Enquiries | `/contact-us/` | Contact methods + WhatsApp enquiry form |
-| Privacy & Enquiry Information | `/privacy-policy/` | — |
+| Services hub | `/services/` | Camel caravan; 11 services in 3 groups |
+| Service pages (6) | `/services/camel-safari-pushkar/`, `jeep-safari-pushkar`, `night-camping-pushkar`, `mobile-camping`, `jungle-safari-pushkar`, `night-safari-pushkar` | Data-driven (`src/data/services.ts`) |
+| Travel guides (13) | `/things-to-do-in-pushkar/`, `/pushkar-fair-2026/`, `/ajmer-sharif-dargah/` … | Data-driven (`src/data/guides-*.ts`), rendered by `src/pages/[guide].astro` |
+| Travel Blog | `/blog/` | Index of all guides |
+| FAQs | `/faqs/` | FAQPage schema |
+| Privacy Policy | `/privacy-policy/` | — |
+| Terms & Conditions | `/terms-and-conditions/` | — |
+| Cancellation & Refund Policy | `/cancellation-refund-policy/` | — |
 | Custom error page | `/404.html` | — |
+
+## Services, guides and footer links
+
+- `src/data/services.ts`: the six new service pages plus the hub grouping. Desert Safari, Swiss Tent on Rent and Culture & Folk Dance link to the existing hand-built pages, and Pushkar Camel Fair and Holi link to their guides, so no two pages compete for the same search.
+- `src/data/guides-pushkar.ts`, `guides-events.ts`, `guides-ajmer.ts`: SEO travel guides. Paragraphs may contain trusted inline HTML for internal links.
+- `src/data/routes.ts`: combines all routes (sitemap), resolves "related" cards, builds the enquiry-form options and defines the footer link columns.
+- `src/components/ContentPage.astro`: shared template (hero, highlights, article with table of contents, optional real-photo feature, related cards, FAQ, booking band) with Service/Article, FAQPage and BreadcrumbList JSON-LD.
+- Fair and festival dates (Pushkar Fair expected 17–24 Nov 2026, Kartik Purnima 24 Nov 2026; Holi 22 Mar 2027) must be re-checked against the official Rajasthan Tourism announcement each year.
 
 ## Design system
 

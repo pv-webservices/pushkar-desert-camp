@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import LinkCards from '../../components/LinkCards.astro';
+import Steps from '../../components/Steps.astro';
+import FAQ from '../../components/FAQ.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+import { serviceGroups, allServiceCards } from '../../data/services';
+const tags: Record<string, string> = { safaris: 'Safari', stays: 'Stay', culture: 'Culture' };
+const itemList = { '@type': 'ItemList', name: 'Services at Pushkar Desert Safari', itemListElement: allServiceCards.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: s.label, url: s.href })) };
+---
+<Layout title="Our Services in Pushkar | Camel Safari, Jeep Safari, Night Camping & More" description="Explore all our services in Pushkar: camel safari, jeep safari, desert and night safari, jungle safari, night camping, mobile camping, Swiss tents on rent, folk dance, Camel Fair and Holi stays." preload="camelSafari" image="camelSafari" schema={[itemList]}>
+  <PageHero eyebrow="Services" title="Every way to <em>experience Pushkar.</em>" description="Safaris across the dunes, nights under canvas and the colour of Rajasthan’s festivals. Choose one experience or combine several and we’ll plan your visit around it." photo="camelSafari" inset="safari" insetLabel="Real safari guests" cta="Plan Your Experience" />
+
+  {serviceGroups.map((group, i) => (
+    <section id={group.id} class:list={['section', { 'tone-sand': i % 2 === 1 }]}>
+      <div class="wrap">
+        <SectionHead eyebrow={`0${i + 1} · ${tags[group.id]}`} title={group.title} text={group.text} align="split" />
+        <LinkCards items={group.items.map(s => ({ href: s.href, title: s.label, text: s.text, photo: s.photo, icon: s.icon, tag: tags[group.id] }))} />
+      </div>
+    </section>
+  ))}
+
+  <Steps />
+  <FAQ items={[
+    { q: 'Can I combine more than one service?', a: 'Yes. Many guests combine a camel or jeep safari with a cultural evening and a night in a Swiss tent. Tell us what interests you and we will plan it together.' },
+    { q: 'How do I check prices and availability?', a: 'Call, email or WhatsApp us with your date and group size. The team confirms availability, current rates, timings and inclusions directly.' },
+    { q: 'Do you arrange services for large groups and events?', a: 'Yes, enquire about group safaris, mobile camping, weddings and corporate events. Share your requirements and the team will discuss the options.' },
+    { q: 'What is the best time of year for these experiences?', a: 'October to March is the most comfortable season in Pushkar, and includes the Camel Fair in November and Holi in March.' },
+  ]} />
+  <BookingCTA />
+</Layout>

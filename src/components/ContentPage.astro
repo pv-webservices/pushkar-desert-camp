@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from './PageHero.astro';
+import SectionHead from './SectionHead.astro';
+import SplitFeature from './SplitFeature.astro';
+import LinkCards from './LinkCards.astro';
+import FAQ from './FAQ.astro';
+import BookingCTA from './BookingCTA.astro';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+import { business } from '../data/site';
+import { enquiryHref, type ContentPage } from '../data/content-types';
+import { resolveLinks } from '../data/routes';
+// Shared template for the data-driven service pages and travel guides.
+interface Props { page: ContentPage; kind: 'service' | 'guide' }
+const { page, kind } = Astro.props;
+const parent = kind === 'service' ? { href: '/services/', label: 'Services' } : { href: '/blog/', label: 'Travel Blog' };
+const ctaHref = enquiryHref(page.enquiry);
+const slug = (text: string) => text.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const sections = page.sections.map(s => ({ ...s, id: slug(s.heading) }));
+const showToc = sections.length >= 4;
+const name = page.metaTitle.split(' | ')[0];
+const provider = { '@type': 'LocalBusiness', name: business.name, telephone: '+919116991219', email: business.email, address: { '@type': 'PostalAddress', addressLocality: 'Pushkar', addressRegion: 'Rajasthan', addressCountry: 'IN' } };
+const mainSchema = kind === 'service'
+  ? { '@type': 'Service', name, serviceType: page.label, description: page.metaDescription, areaServed: { '@type': 'Place', name: 'Pushkar, Rajasthan' }, provider }
+  : { '@type': 'Article', headline: name, description: page.metaDescription, about: page.label, author: { '@type': 'Organization', name: business.name }, publisher: { '@type': 'Organization', name: business.name } };
+const faqSchema = { '@type': 'FAQPage', mainEntity: page.faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Layout title={page.metaTitle} description={page.metaDescription} image={page.photo} preload={page.photo}
+  crumbs={[{ name: parent.label, path: parent.href }, { name: page.label, path: page.path }]} schema={[mainSchema, faqSchema]}>
+  <PageHero eyebrow={page.eyebrow} title={page.title} description={page.lead} photo={page.photo} inset={page.inset} insetLabel={page.insetLabel}
+    position={page.position} cta={page.ctaLabel} ctaHref={ctaHref} parent={parent} />
+
+  {page.highlights && (
+    <section class="section">
+      <div class="wrap">
+        <SectionHead eyebrow={kind === 'service' ? 'Why guests love it' : 'At a glance'} title={`${page.label}, <em>at a glance</em>`} align="split" />
+        <div class="feature-cards">
+          {page.highlights.map((h, i) => <div class="feature-card" data-reveal style={`--delay:${i * 90}ms`}><span class="reason-icon"><Icon name={h.icon} size={26} /></span><h3>{h.title}</h3><p>{h.text}</p></div>)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class:list={['section', { 'tone-sand': page.highlights }]}>
+    <div class:list={['wrap', 'article-layout', { 'has-toc': showToc }]}>
+      {showToc && (
+        <nav class="article-toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol>{sections.map(s => <li><a href={`#${s.id}`}>{s.heading}</a></li>)}</ol>
+        </nav>
+      )}
+      <div class="article-body">
+        <article class="prose">
+        {sections.map(s => (
+          <section class="article-section" aria-labelledby={s.id}>
+            <h2 id={s.id}>{s.heading}</h2>
+            {s.paragraphs.map(p => <p set:html={p} />)}
+            {s.list && <ul>{s.list.map(item => <li set:html={item} />)}</ul>}
+          </section>
+        ))}
+        </article>
+        <aside class="article-cta">
+          <p><strong>Planning your visit?</strong> Call <a href={business.tel}>{business.phone}</a> or send us a WhatsApp message and we will help you plan.</p>
+          <div class="button-row"><Button href={ctaHref} size="sm">{page.ctaLabel}</Button><Button href={business.whatsapp} variant="ghost-dark" size="sm" icon="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp<span class="sr-only"> (opens in a new tab)</span></Button></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {page.feature && (
+    <SplitFeature photo={page.feature.photo} secondary={page.feature.secondary} eyebrow={page.feature.eyebrow} title={page.feature.title} shape="arch">
+      {page.feature.paragraphs.map(p => <p>{p}</p>)}
+      {page.feature.list && <ul class="check-list">{page.feature.list.map(item => <li><Icon name="check" size={16} />{item}</li>)}</ul>}
+      <div class="button-row"><Button href={ctaHref}>{page.ctaLabel}</Button></div>
+    </SplitFeature>
+  )}
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHead eyebrow="Keep exploring" title="You may <em>also like</em>" align="split">
+        <Button href={parent.href} variant="ghost-dark" size="sm">{kind === 'service' ? 'All services' : 'All travel guides'}</Button>
+      </SectionHead>
+      <LinkCards items={resolveLinks(page.related)} />
+    </div>
+  </section>
+
+  <FAQ items={page.faqs} />
+  <BookingCTA />
+</Layout>

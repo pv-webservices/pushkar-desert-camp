@@ -72,3 +72,46 @@ a.contact-method:hover { transform: translateX(6px); border-color: var(--line-st
 .not-found h1 { font-size: var(--fs-display); }
 .not-found h1 em { color: var(--amber-soft); }
 .not-found p:not(.eyebrow) { margin: 20px 0 32px; font-size: var(--fs-lead); }
+
+/* ---------- Link cards (services hub, related pages, blog) ---------- */
+.link-cards .exp-title { margin: 0; }
+.link-card-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+.link-card-link:focus-visible { outline: none; }
+.exp-card:has(.link-card-link:focus-visible) { outline: 3px solid var(--maroon); outline-offset: 3px; }
+.link-cards .exp-arrow { z-index: 0; }
+
+/* ---------- Service pages & travel guides ---------- */
+.article-layout { display: block; }
+.article-layout.has-toc { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: clamp(36px, 6vw, 110px); align-items: start; }
+.article-layout:not(.has-toc) .article-body { max-width: 860px; margin-inline: auto; }
+.article-body { max-width: 820px; }
+.article-toc { position: sticky; top: calc(var(--header-h) + 24px); padding: 26px; border-radius: var(--r-md); background: rgba(255, 252, 246, 0.8); border: 1px solid var(--line); max-height: calc(100vh - var(--header-h) - 48px); overflow-y: auto; }
+.article-toc ol { display: grid; gap: 10px; margin-top: 14px; counter-reset: toc; }
+.article-toc li { counter-increment: toc; display: grid; grid-template-columns: 2.1em 1fr; font-size: 0.9375rem; line-height: 1.35; }
+.article-toc li::before { content: counter(toc, decimal-leading-zero); font: 500 0.875rem/1.5 var(--serif); font-style: italic; color: var(--bronze); }
+.article-toc a { color: var(--muted); transition: color var(--t-fast); }
+.article-toc a:hover { color: var(--maroon); }
+.article-section + .article-section { margin-top: clamp(36px, 4vw, 52px); }
+.article-section h2 { scroll-margin-top: calc(var(--header-h) + 24px); }
+.prose p + p { margin-top: 14px; }
+.prose ul { display: grid; gap: 10px; margin-top: 16px; padding-left: 1.3em; list-style: disc; color: var(--muted); font-size: 1.0625rem; }
+.prose li::marker { color: var(--bronze); }
+.prose strong { color: var(--ink); }
+.article-cta { margin-top: clamp(40px, 5vw, 60px); padding: clamp(24px, 3vw, 36px); border-radius: var(--r-md); background: var(--paper); border: 1px solid var(--line); }
+.article-cta p { color: var(--ink); }
+.article-cta p a { color: var(--maroon); text-decoration: underline; text-underline-offset: 3px; }
+.article-cta .button-row { margin-top: 18px; }
+@media (max-width: 960px) {
+  .article-layout.has-toc { grid-template-columns: 1fr; }
+  .article-toc { position: static; max-height: none; }
+}
+
+/* ---------- FAQs page ---------- */
+.faq-group + .faq-group { margin-top: clamp(40px, 5vw, 64px); }
+.faq-group h2 { margin-bottom: 18px; font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem); }
+.faq-page > .button-row { margin-top: 48px; }
+.page-intro-text a { color: var(--maroon); text-decoration: underline; text-underline-offset: 3px; }
+.link-cards { grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); }
+@media (max-width: 1100px) { .link-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .link-cards { grid-template-columns: 1fr; } }
+.link-cards .exp-card .exp-title, .link-cards .exp-card:nth-child(1) .exp-title { font-size: clamp(1.45rem, 1.2rem + 0.6vw, 1.85rem); line-height: 1.1; }

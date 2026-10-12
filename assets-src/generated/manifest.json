@@ -108,5 +108,173 @@
     "files": [
       "ai-blockprint-560.webp"
     ]
+  },
+  "ai-camel-safari": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "high",
+    "size": "1536x1024",
+    "placement": "Camel Safari service hero and services hub card",
+    "alt": "A caravan of saddled camels walking along a dune ridge at sunset near Pushkar",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-camel-safari-768.webp",
+      "ai-camel-safari-1280.webp",
+      "ai-camel-safari-1600.webp"
+    ]
+  },
+  "ai-camel-fair": {
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "high",
+    "size": "1536x1024",
+    "placement": "Pushkar Fair guide hero and Pushkar Camel Fair service card",
+    "alt": "Decorated camels resting on a sandy fairground with hills and festival tents in the distance",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-camel-fair-768.webp",
+      "ai-camel-fair-1280.webp",
+      "ai-camel-fair-1600.webp"
+    ]
+  },
+  "ai-holi-colours": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Pushkar Holi Festival guide hero and service card",
+    "alt": "Brass bowls of bright gulal colour powder with clouds of colour drifting in the sunlight",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-holi-colours-768.webp",
+      "ai-holi-colours-1280.webp",
+      "ai-holi-colours-1600.webp"
+    ]
+  },
+  "ai-campfire-night": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Night Camping service hero and services hub card",
+    "alt": "A crackling campfire with floor cushions and lanterns on the dunes under a starry sky",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-campfire-night-768.webp",
+      "ai-campfire-night-1280.webp",
+      "ai-campfire-night-1600.webp"
+    ]
+  },
+  "ai-night-safari": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Night Safari service hero",
+    "alt": "An open safari jeep with headlights glowing on a sandy track at blue hour under early stars",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-night-safari-768.webp",
+      "ai-night-safari-1280.webp",
+      "ai-night-safari-1600.webp"
+    ]
+  },
+  "ai-aravalli-jungle": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Jungle Safari service hero",
+    "alt": "A peacock on a rock beside a dirt track through dry Aravalli scrub forest in morning light",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-aravalli-jungle-768.webp",
+      "ai-aravalli-jungle-1280.webp",
+      "ai-aravalli-jungle-1600.webp"
+    ]
+  },
+  "ai-pushkar-ghats": {
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "high",
+    "size": "1536x1024",
+    "placement": "Things to do in Pushkar, Pushkar Lake and temple guides",
+    "alt": "Illustrative view of whitewashed lakeside ghats and temple domes at sunrise",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-pushkar-ghats-768.webp",
+      "ai-pushkar-ghats-1280.webp",
+      "ai-pushkar-ghats-1600.webp"
+    ]
+  },
+  "ai-hot-air-balloons": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Hot Air Balloon Safari guide hero",
+    "alt": "Colourful hot air balloons rising over desert dunes and hills at sunrise",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-hot-air-balloons-768.webp",
+      "ai-hot-air-balloons-1280.webp",
+      "ai-hot-air-balloons-1600.webp"
+    ]
+  },
+  "ai-yoga-sunrise": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Wellness Yoga Camp guide hero",
+    "alt": "A rolled-out yoga mat and brass singing bowl on a rug facing the sunrise over the dunes",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-yoga-sunrise-768.webp",
+      "ai-yoga-sunrise-1280.webp",
+      "ai-yoga-sunrise-1600.webp"
+    ]
+  },
+  "ai-wedding-decor": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Wedding Events in Pushkar guide hero",
+    "alt": "An outdoor wedding mandap decorated with marigold garlands and lanterns at dusk",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-wedding-decor-768.webp",
+      "ai-wedding-decor-1280.webp",
+      "ai-wedding-decor-1600.webp"
+    ]
+  },
+  "ai-mobile-camp": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Mobile Camping service hero",
+    "alt": "Illustrative portable canvas tent pitched among remote dunes at dusk with a lantern outside",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-mobile-camp-768.webp",
+      "ai-mobile-camp-1280.webp",
+      "ai-mobile-camp-1600.webp"
+    ]
+  },
+  "ai-temple-diyas": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "size": "1536x1024",
+    "placement": "Brahma Temple guide hero",
+    "alt": "Brass diyas, marigold garlands and offerings on old temple steps at dusk",
+    "width": 1536,
+    "height": 1024,
+    "files": [
+      "ai-temple-diyas-768.webp",
+      "ai-temple-diyas-1280.webp",
+      "ai-temple-diyas-1600.webp"
+    ]
   }
 }

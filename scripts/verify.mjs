@@ -5,7 +5,7 @@ import path from 'node:path';
 const base=process.env.QA_URL || 'http://127.0.0.1:4321';
 const output=path.resolve('output/playwright');
 await fs.mkdir(output,{recursive:true});
-const routes=['/','/about-us/','/experiences/','/desert-safari/','/camp-stay/','/swiss-tent/','/cultural-experiences/','/gallery/','/contact-us/','/privacy-policy/','/404.html'];
+const routes=['/','/about-us/','/experiences/','/services/','/services/camel-safari-pushkar/','/desert-safari/','/camp-stay/','/swiss-tent/','/cultural-experiences/','/gallery/','/blog/','/pushkar-fair-2026/','/faqs/','/contact-us/','/privacy-policy/','/terms-and-conditions/','/404.html'];
 const widths=[320,375,390,640,768,1024,1440,1920];
 const report={base,ranAt:new Date().toISOString(),responsive:[],accessibility:[],interactions:[],links:[],errors:[],noJavaScript:[],motion:[]};
 const browser=await chromium.launch({channel:'chrome',headless:true});

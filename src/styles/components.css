@@ -114,7 +114,7 @@ a.icon-pill:hover { background: var(--amber); color: var(--ink); transform: tran
 /* ---------- Footer ---------- */
 .site-footer { position: relative; overflow: hidden; background: var(--night); color: var(--on-dark-muted); padding-top: clamp(64px, 8vw, 110px); }
 .site-footer::before { content: ''; position: absolute; inset: -30% 40% auto -10%; height: 70%; background: radial-gradient(closest-side, rgba(231, 160, 60, 0.16), transparent); pointer-events: none; }
-.footer-top { position: relative; display: grid; grid-template-columns: 1.3fr 0.8fr 0.9fr 1.25fr; gap: clamp(32px, 4vw, 70px); }
+.footer-top { position: relative; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(32px, 4vw, 70px); align-items: start; }
 .footer-logo { display: inline-block; padding: 14px 18px; border-radius: var(--r-md); background: var(--ivory); }
 .footer-logo img { height: 74px; width: auto; }
 .footer-tagline { margin: 26px 0; font: 500 1.6rem/1.25 var(--serif); color: var(--on-dark); }
@@ -128,8 +128,15 @@ a.icon-pill:hover { background: var(--amber); color: var(--ink); transform: tran
 .footer-word { position: relative; margin-top: clamp(40px, 6vw, 90px); text-align: center; font: 600 clamp(5rem, 22vw, 22rem)/0.72 var(--serif); letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1px rgba(243, 194, 122, 0.3); user-select: none; }
 .footer-bottom { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 30px; padding: 26px 0 32px; border-top: 1px solid var(--line-light); font-size: 0.875rem; }
 .footer-bottom a:hover { color: var(--paper); }
-@media (max-width: 1000px) { .footer-top { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
-@media (max-width: 560px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; } .footer-contact a { font-size: 0.9375rem; } }
+/* SEO link columns: services, Pushkar, events, Ajmer and quick links */
+.footer-links { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 36px clamp(24px, 3vw, 50px); margin-top: clamp(44px, 5vw, 70px); padding-top: clamp(36px, 4vw, 56px); border-top: 1px solid var(--line-light); }
+.footer-links ul { display: grid; gap: 11px; }
+.footer-links a { font-size: 0.9375rem; line-height: 1.4; }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+@media (max-width: 1200px) { .footer-links { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .footer-top { grid-template-columns: 1fr; } .footer-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .footer-bottom { flex-direction: column; } .footer-contact a { font-size: 0.9375rem; } }
+@media (max-width: 380px) { .footer-links { grid-template-columns: 1fr; } }
 
 /* ---------- Floating WhatsApp (desktop) & contact dock (mobile) ---------- */
 .wa-float { position: fixed; right: 24px; bottom: 24px; z-index: 55; display: flex; align-items: center; gap: 0; height: 58px; padding: 0 16px; border-radius: var(--r-pill); background: var(--wa-green); color: #fff; box-shadow: 0 16px 34px -14px rgba(31, 157, 87, 0.7); transition: gap var(--t-med) var(--ease), transform var(--t-fast) var(--ease); }

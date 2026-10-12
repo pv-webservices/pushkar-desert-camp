@@ -1,0 +1,9 @@
+---
+import ContentPage from '../../components/ContentPage.astro';
+import { servicePages } from '../../data/services';
+export function getStaticPaths() {
+  return servicePages.map(page => ({ params: { slug: page.path.split('/')[2] }, props: { page } }));
+}
+const { page } = Astro.props;
+---
+<ContentPage page={page} kind="service" />

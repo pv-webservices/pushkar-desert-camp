@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import LinkCards from '../../components/LinkCards.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+import { guidePages } from '../../data/routes';
+const categories = [...new Set(guidePages.map(g => g.category ?? 'Guides'))];
+const intros: Record<string, string> = {
+  'Explore Pushkar': 'Temples, ghats, viewpoints and the best things to do in the holy town.',
+  'Fairs & Events': 'The Pushkar Camel Fair, Holi and celebrations in the desert.',
+  'Explore Ajmer': 'Day-trip ideas for Ajmer, the gateway to Pushkar.',
+};
+const blog = { '@type': 'Blog', name: 'Pushkar Travel Blog', blogPost: guidePages.map(g => ({ '@type': 'BlogPosting', headline: g.metaTitle.split(' | ')[0], url: g.path })) };
+---
+<Layout title="Pushkar Travel Blog | Guides to Pushkar, Ajmer, Fairs & Festivals" description="Travel guides from Pushkar Desert Safari: things to do in Pushkar, Brahma Temple, Pushkar Lake, Pushkar Fair 2026, Holi in Pushkar, Ajmer Sharif Dargah and more." image="ghats" schema={[blog]}>
+  <section class="page-intro">
+    <div class="wrap page-intro-grid">
+      <div>
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Travel Blog</span></nav>
+        <p class="eyebrow hero-in">Travel Blog</p>
+        <h1 class="hero-in">Pushkar &amp; Ajmer <em>travel guides</em></h1>
+      </div>
+      <p class="page-intro-text hero-in">Local tips for planning your trip: sacred sites, festivals, fair dates and day trips, written by the team at Pushkar Desert Safari.</p>
+    </div>
+  </section>
+  {categories.map((cat, i) => (
+    <section class:list={['section', { 'tone-sand': i % 2 === 1 }]}>
+      <div class="wrap">
+        <SectionHead eyebrow={`0${i + 1} · Guides`} title={cat} text={intros[cat]} align="split" />
+        <LinkCards items={guidePages.filter(g => (g.category ?? 'Guides') === cat).map(g => ({ href: g.path, title: g.label, text: g.cardText, photo: g.photo, icon: g.icon, tag: cat }))} />
+      </div>
+    </section>
+  ))}
+  <BookingCTA />
+</Layout>

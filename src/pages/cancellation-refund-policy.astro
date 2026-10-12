@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { business } from '../data/site';
+---
+<Layout title="Cancellation & Refund Policy | Pushkar Desert Safari" description="How cancellations, date changes, weather disruptions and refunds work for safaris, camp stays and events booked with Pushkar Desert Safari.">
+  <section class="page-intro">
+    <div class="wrap-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Cancellation & Refund Policy</span></nav>
+      <p class="eyebrow hero-in">Booking information</p>
+      <h1 class="hero-in">Cancellation <em>&amp; refund policy</em></h1>
+      <p class="page-intro-text hero-in">We understand that plans change. This page explains how cancellations and refunds are handled.</p>
+    </div>
+  </section>
+  <section class="section prose-section">
+    <div class="wrap-narrow prose">
+      <h2>Your booking confirmation comes first</h2>
+      <p>The cancellation terms that apply to your booking are the ones confirmed to you in writing when you book (on WhatsApp or by email). Terms can differ by season, by service and for group, event and festival bookings, so please read your confirmation carefully and ask the team if anything is unclear.</p>
+      <h2>How to cancel or change a booking</h2>
+      <p>Contact us as early as possible by phone on <a href={business.tel}>{business.phone}</a>, by WhatsApp, or by email at <a href={`mailto:${business.email}`}>{business.email}</a>, quoting your name and booking dates. A cancellation takes effect from the time the team acknowledges your message.</p>
+      <h2>Date changes</h2>
+      <p>Where possible we are happy to move your booking to new dates, subject to availability and any difference in price for the new dates.</p>
+      <h2>Cancellation by the guest</h2>
+      <p>Any cancellation charge depends on how much notice you give and the type of booking. Charges are generally higher for late cancellations, no-shows, festival dates (such as the Pushkar Fair and Holi) and group or event bookings, because arrangements are made specifically for you.</p>
+      <h2>Cancellation by us, weather and safety</h2>
+      <p>Outdoor activities may be shortened, rescheduled or cancelled because of weather, safety concerns or instructions from local authorities. Where we cancel a service and cannot offer a suitable alternative, the amount paid for that service will be refunded or credited, as agreed with you.</p>
+      <h2>Refunds</h2>
+      <p>Approved refunds are made to the original payment method, or as otherwise agreed with you, within a reasonable time after approval. Bank and payment provider charges may apply.</p>
+      <h2>Third-party services</h2>
+      <p>Services operated by third parties, such as hot air balloon flights, are subject to their own cancellation and refund terms.</p>
+      <h2>Questions</h2>
+      <p>If you have any questions before booking, please contact us. See also our <a href="/terms-and-conditions/">Terms & Conditions</a> and <a href="/privacy-policy/">Privacy Policy</a>.</p>
+    </div>
+  </section>
+</Layout>

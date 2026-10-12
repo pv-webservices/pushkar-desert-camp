@@ -1,0 +1,10 @@
+---
+import ContentPage from '../components/ContentPage.astro';
+import { guidePages } from '../data/routes';
+// Root-level travel guides (e.g. /pushkar-fair-2026/). Static pages take precedence over this route.
+export function getStaticPaths() {
+  return guidePages.map(page => ({ params: { guide: page.path.replaceAll('/', '') }, props: { page } }));
+}
+const { page } = Astro.props;
+---
+<ContentPage page={page} kind="guide" />

@@ -8,19 +8,19 @@ import FAQ from '../components/FAQ.astro';
 import BookingCTA from '../components/BookingCTA.astro';
 import Icon from '../components/Icon.astro';
 const features = [
-  { icon: 'jeep', title: 'A jeep adventure', text: 'Enjoy the experience of heading out into the sandy surroundings of Pushkar.' },
-  { icon: 'users', title: 'Shared memories', text: 'Whether travelling with friends or family, talk to us about a safari for your group.' },
-  { icon: 'calendar', title: 'Your visit, your plan', text: 'Ask about the current route, timings, pricing and arrangements before confirming.' },
+  { icon: 'sun', title: 'Camel safari', text: 'The traditional way to ride the dunes: slow, peaceful and perfect at sunset.', href: '/services/camel-safari-pushkar/' },
+  { icon: 'jeep', title: 'Jeep safari', text: 'Open-top adventures across sandy tracks, dunes and village landscapes.', href: '/services/jeep-safari-pushkar/' },
+  { icon: 'moon', title: 'Night safari', text: 'Moonlit dunes, cool desert air and a sky full of stars.', href: '/services/night-safari-pushkar/' },
 ];
 ---
-<Layout title="Desert Safari in Pushkar | Jeep Safari Enquiries" description="Discover a jeep safari experience in Pushkar with genuine guest photographs. Contact Pushkar Desert Safari for current timings, arrangements and availability." preload="safariDunes">
+<Layout title="Desert Safari in Pushkar | Camel, Jeep & Night Safari" description="Plan a desert safari in Pushkar: sunset camel rides, open jeep safaris and night safaris on the dunes, with real guest photos. Combine with a camp stay. Enquire for current timings." preload="safariDunes">
   <PageHero eyebrow="Desert Safari" title="Open skies. Sandy tracks. <em>Big smiles.</em>" description="Make room for a little adventure. Discover Pushkar’s sandy landscape from a safari jeep, with moments you’ll want to remember." photo="safariDunes" inset="journey" insetLabel="Real safari guests" cta="Enquire About a Safari" ctaHref="/contact-us/?service=Desert%20Safari" />
 
   <section class="section">
     <div class="wrap">
-      <SectionHead eyebrow="Let the adventure begin" title="There’s a different kind of <em>freedom</em> out here." text="A jeep, the Rajasthan landscape and good company. Our safari photographs tell the story of shared adventures around Pushkar. Speak with us to plan yours." align="split" />
+      <SectionHead eyebrow="Let the adventure begin" title="Choose your <em>desert safari</em>" text="Pushkar sits on the edge of the Thar Desert. Explore its dunes on a camel, in a jeep or under the stars, or combine all three with a night at the camp." align="split" />
       <div class="feature-cards">
-        {features.map((f, i) => <div class="feature-card" data-reveal style={`--delay:${i * 90}ms`}><span class="reason-icon"><Icon name={f.icon} size={26} /></span><h3>{f.title}</h3><p>{f.text}</p></div>)}
+        {features.map((f, i) => <a class="feature-card" href={f.href} data-reveal style={`--delay:${i * 90}ms`}><span class="reason-icon"><Icon name={f.icon} size={26} /></span><h3>{f.title}</h3><p>{f.text}</p><span class="text-link feature-link">Explore {f.title.toLowerCase()}<Icon name="arrow" size={16} /></span></a>)}
       </div>
     </div>
   </section>
@@ -36,6 +36,7 @@ const features = [
   <FAQ items={[
     { q: 'How do I arrange a safari?', a: 'Call or send a WhatsApp enquiry with your preferred date and group size. The team will share availability and the current safari details.' },
     { q: 'What is the duration, route and price?', a: 'Contact us to confirm the current route, duration, price and inclusions. These details are agreed directly with the team before your visit.' },
+    { q: 'Which desert safari is best in Pushkar?', a: 'A camel safari is slow and traditional, a jeep safari covers more ground, and a night safari shows the desert after dark. Many guests combine a sunset camel ride with a jeep safari.' },
     { q: 'Can I combine a safari with a camp stay?', a: 'Enquire about both experiences together. The team can discuss the available arrangements for your preferred dates.' },
     { q: 'What should I check before visiting?', a: 'Ask the team about suitable clothing, weather conditions, participation requirements and any arrangements needed for your group.' },
   ]} />

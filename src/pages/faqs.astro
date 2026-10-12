@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+import { business } from '../data/site';
+const groups: { title: string; items: { q: string; a: string }[] }[] = [
+  { title: 'Booking & enquiries', items: [
+    { q: 'How do I book with Pushkar Desert Safari?', a: 'Call, email or send a WhatsApp message with your preferred date, number of guests and the experiences you are interested in. The team confirms availability, current rates, timings and inclusions directly with you.' },
+    { q: 'Does submitting the enquiry form confirm my booking?', a: 'No. The form prepares a WhatsApp message for you to send. A booking is only confirmed once the team has agreed the details and payment arrangements with you.' },
+    { q: 'Where can I find your prices?', a: 'Prices depend on the season, dates, group size and the services you choose, so they are shared on enquiry. This keeps the quote accurate for your visit.' },
+    { q: 'Can you arrange services for groups and events?', a: 'Yes. Enquire about group safaris, mobile camping, Swiss tents on rent, weddings, corporate outings and fair-season stays.' },
+  ] },
+  { title: 'Safaris & experiences', items: [
+    { q: 'Which safaris do you offer in Pushkar?', a: 'Camel safari, jeep safari, desert safari, night safari and jungle safari. See the services page for details of each.' },
+    { q: 'What is the best time for a desert safari?', a: 'October to March offers the most pleasant weather. Sunset is the most popular time for camel and jeep safaris.' },
+    { q: 'Do you offer folk dance and cultural evenings?', a: 'Yes. Ask about Rajasthani folk dance, music and fire performances for your visit.' },
+  ] },
+  { title: 'Stay & camp', items: [
+    { q: 'What kind of accommodation do you have?', a: 'Furnished Swiss tents at the camp. The gallery shows genuine photographs of the bedrooms, interiors and washroom facilities.' },
+    { q: 'Is the camp suitable for families?', a: 'Yes. Families, couples, friends and groups all stay with us. Tell us about your group when you enquire.' },
+    { q: 'Is it cold at night?', a: 'Desert nights from November to February can be cold. Pack warm layers.' },
+  ] },
+  { title: 'Visiting Pushkar', items: [
+    { q: 'How do I reach Pushkar?', a: 'Ajmer Junction is the nearest major railway station (about 15 km). Kishangarh airport is the nearest airport, and Jaipur airport is further away by road.' },
+    { q: 'When is the Pushkar Fair in 2026?', a: 'The Pushkar Fair 2026 is expected to run around 17–24 November 2026, ending on Kartik Purnima (24 November). Confirm the official schedule from Rajasthan Tourism.' },
+    { q: 'Is alcohol allowed in Pushkar?', a: 'Pushkar is a holy town. Alcohol, meat and eggs are not permitted within the town, and visitors are asked to respect local customs.' },
+  ] },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: groups.flatMap(g => g.items).map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Layout title="FAQs | Pushkar Desert Safari, Camp Stay & Booking Questions" description="Answers to common questions about booking a camel or jeep safari, camp stay, Swiss tents, the Pushkar Fair and travelling to Pushkar." schema={[faqSchema]}>
+  <section class="page-intro">
+    <div class="wrap-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">FAQs</span></nav>
+      <p class="eyebrow hero-in">Helpful answers</p>
+      <h1 class="hero-in">Frequently asked <em>questions</em></h1>
+      <p class="page-intro-text hero-in">Can’t find what you are looking for? Call <a href={business.tel}>{business.phone}</a> or message us on WhatsApp.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap-narrow faq-page">
+      {groups.map(g => (
+        <section class="faq-group">
+          <h2>{g.title}</h2>
+          <div class="faq-list">{g.items.map(item => <details><summary><span>{item.q}</span><span class="faq-icon" aria-hidden="true"></span></summary><div class="faq-answer"><p>{item.a}</p></div></details>)}</div>
+        </section>
+      ))}
+      <div class="button-row"><Button href="/contact-us/">Ask Us a Question</Button><Button href="/services/" variant="ghost-dark">View All Services</Button></div>
+    </div>
+  </section>
+  <BookingCTA />
+</Layout>

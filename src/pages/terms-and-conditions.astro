@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { business } from '../data/site';
+---
+<Layout title="Terms & Conditions | Pushkar Desert Safari" description="Terms and conditions for enquiries, bookings, safaris, camp stays and events with Pushkar Desert Safari in Pushkar, Rajasthan.">
+  <section class="page-intro">
+    <div class="wrap-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Terms & Conditions</span></nav>
+      <p class="eyebrow hero-in">Website & booking information</p>
+      <h1 class="hero-in">Terms <em>&amp; conditions</em></h1>
+      <p class="page-intro-text hero-in">Please read these terms before booking a safari, stay or event with {business.name}.</p>
+    </div>
+  </section>
+  <section class="section prose-section">
+    <div class="wrap-narrow prose">
+      <h2>1. About these terms</h2>
+      <p>These terms apply to the use of this website and to enquiries and bookings made with {business.name}, Pushkar, Rajasthan. Any specific terms confirmed to you in writing at the time of booking (for example, on WhatsApp or by email) form part of your agreement and take precedence over this general page.</p>
+      <h2>2. Enquiries and bookings</h2>
+      <p>Submitting an enquiry through this website, by phone, email or WhatsApp is a request for information and does not reserve a service. A booking is confirmed only when the team has confirmed availability, the price, inclusions and payment arrangements, and has acknowledged your booking.</p>
+      <h2>3. Prices and payment</h2>
+      <p>Prices are quoted on enquiry and depend on dates, season, group size and the services chosen. Festival periods such as the Pushkar Fair and Holi may have different rates. The amount, method and timing of any advance or balance payment will be confirmed with your booking.</p>
+      <h2>4. Safaris and activities</h2>
+      <p>Camel, jeep, night and jungle safaris, and other activities, take place outdoors and depend on weather, safety and local conditions. Routes, timings and durations may be adjusted by the team where necessary. Guests must follow the instructions of guides, drivers and camel handlers at all times, and should tell the team in advance about any medical condition, pregnancy, mobility needs or other circumstances relevant to taking part.</p>
+      <h2>5. Guest conduct</h2>
+      <p>Pushkar is a holy town and guests are asked to respect local customs. Behaviour that endangers the safety of guests, staff or animals, or damages property, may result in a service being stopped without refund. Guests are responsible for any damage they cause.</p>
+      <h2>6. Personal belongings</h2>
+      <p>Please take care of your valuables during safaris, events and your stay. {business.name} cannot be responsible for the loss of or damage to personal belongings except where required by law.</p>
+      <h2>7. Third-party services</h2>
+      <p>Some experiences mentioned on this website, such as hot air balloon flights, ropeways, temples and festival events, are operated by third parties or public authorities. Their availability, rules and prices are outside our control.</p>
+      <h2>8. Cancellations and changes</h2>
+      <p>Please see our <a href="/cancellation-refund-policy/">Cancellation & Refund Policy</a>.</p>
+      <h2>9. Website content</h2>
+      <p>Information on this website, including travel guides and festival dates, is provided in good faith for planning purposes and may change. Please confirm important details before travelling. Photographs of the camp, tents, guests and performances are the business’s own; some landscape and still-life images are illustrative.</p>
+      <h2>10. Contact</h2>
+      <p>For questions about these terms, contact <a href={`mailto:${business.email}`}>{business.email}</a> or call <a href={business.tel}>{business.phone}</a>.</p>
+    </div>
+  </section>
+</Layout>

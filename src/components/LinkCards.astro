@@ -1,0 +1,24 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import type { PhotoKey } from '../data/site';
+// Image cards for any set of internal links (services hub, related pages, blog index).
+interface Props { items: { href: string; title: string; text: string; photo: PhotoKey; icon: string; tag: string }[]; headingLevel?: 'h2' | 'h3' }
+const { items, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+// Balanced desktop columns, so a row never ends with a single orphaned card.
+const cols = items.length <= 5 ? items.length : items.length % 3 === 0 ? 3 : 4;
+---
+<ul class="exp-grid exp-row link-cards" role="list" style={`--cols:${cols}`}>
+  {items.map((c, i) => (
+    <li class="exp-card" data-reveal style={`--delay:${(i % 4) * 80}ms`}>
+      <span class="exp-media"><Photo name={c.photo} sizes="(max-width: 760px) 92vw, (max-width: 1100px) 46vw, 24vw" decorative /></span>
+      <span class="exp-tag"><Icon name={c.icon} size={16} />{c.tag}</span>
+      <span class="exp-body">
+        <Heading class="exp-title"><a href={c.href} class="link-card-link">{c.title}</a></Heading>
+        <span class="exp-text">{c.text}</span>
+      </span>
+      <span class="exp-arrow" aria-hidden="true"><Icon name="arrow-up-right" size={20} /></span>
+    </li>
+  ))}
+</ul>

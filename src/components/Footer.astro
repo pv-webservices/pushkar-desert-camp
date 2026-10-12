@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import { business } from '../data/site';
+import { footerGroups } from '../data/routes';
 ---
 <footer class="site-footer">
   <div class="wrap footer-top">
@@ -13,14 +14,6 @@ import { business } from '../data/site';
         <a class="icon-pill" href={`mailto:${business.email}`} aria-label={`Email ${business.email}`}><Icon name="mail" size={18} /></a>
       </div>
     </div>
-    <div class="footer-col">
-      <h2>Discover</h2>
-      <a href="/about-us/">About Us</a><a href="/experiences/">Our Experiences</a><a href="/gallery/">Photo Gallery</a><a href="/contact-us/">Plan Your Visit</a>
-    </div>
-    <div class="footer-col">
-      <h2>Experiences</h2>
-      <a href="/desert-safari/">Desert Safari</a><a href="/camp-stay/">Camp Stay</a><a href="/swiss-tent/">Swiss Tent Stay</a><a href="/cultural-experiences/">Folk Dance & Fire Show</a>
-    </div>
     <div class="footer-col footer-contact">
       <h2>Get in touch</h2>
       <a href={business.tel}><Icon name="phone" size={17} />{business.phone}</a>
@@ -29,10 +22,18 @@ import { business } from '../data/site';
       <p><Icon name="pin" size={17} />{business.location}</p>
     </div>
   </div>
+  <nav class="wrap footer-links" aria-label="Footer">
+    {footerGroups.map(group => (
+      <div class="footer-col">
+        <h2>{group.title}</h2>
+        <ul role="list">{group.links.map(l => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      </div>
+    ))}
+  </nav>
   <div class="footer-word" aria-hidden="true">Pushkar</div>
   <div class="wrap footer-bottom">
     <p>© {new Date().getFullYear()} Pushkar Desert Safari. All rights reserved.</p>
-    <a href="/privacy-policy/">Privacy & Enquiries</a>
+    <p class="footer-legal"><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-and-conditions/">Terms & Conditions</a><a href="/cancellation-refund-policy/">Cancellation & Refunds</a></p>
     <p>Made for memorable journeys.</p>
   </div>
 </footer>

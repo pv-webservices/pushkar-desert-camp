@@ -35,6 +35,18 @@ const photoData = {
   lantern: { id: 'ai-lantern-dusk', alt: 'A glowing brass lantern resting on sand at dusk', w: 1024, h: 1536, widths: ai, generated: true },
   chai: { id: 'ai-chai-welcome', alt: 'Masala chai in clay cups on a brass tray over a block-printed cotton rug', w: 1024, h: 1536, widths: ai, generated: true },
   sunrise: { id: 'ai-aravalli-sunrise', alt: 'Sunrise over misty hills with desert scrub in the foreground', w: 1536, h: 1024, widths: ai, generated: true },
+  camelSafari: { id: 'ai-camel-safari', alt: 'A caravan of saddled camels walking along a dune ridge at sunset', w: 1536, h: 1024, widths: ai, generated: true },
+  camelFair: { id: 'ai-camel-fair', alt: 'Decorated camels resting on a sandy fairground with hills in the distance', w: 1536, h: 1024, widths: ai, generated: true },
+  holi: { id: 'ai-holi-colours', alt: 'Brass bowls of bright gulal colour powder with colour drifting in the sunlight', w: 1536, h: 1024, widths: ai, generated: true },
+  campfire: { id: 'ai-campfire-night', alt: 'A campfire with floor cushions and lanterns on the dunes under a starry sky', w: 1536, h: 1024, widths: ai, generated: true },
+  nightSafari: { id: 'ai-night-safari', alt: 'An open safari jeep with glowing headlights on a sandy track at blue hour', w: 1536, h: 1024, widths: ai, generated: true },
+  jungle: { id: 'ai-aravalli-jungle', alt: 'A peacock beside a dirt track through dry Aravalli scrub forest in morning light', w: 1536, h: 1024, widths: ai, generated: true },
+  ghats: { id: 'ai-pushkar-ghats', alt: 'Illustrative view of whitewashed lakeside ghats and temple domes at sunrise', w: 1536, h: 1024, widths: ai, generated: true },
+  balloons: { id: 'ai-hot-air-balloons', alt: 'Colourful hot air balloons rising over desert dunes at sunrise', w: 1536, h: 1024, widths: ai, generated: true },
+  yoga: { id: 'ai-yoga-sunrise', alt: 'A yoga mat and brass singing bowl on a rug facing the sunrise over the dunes', w: 1536, h: 1024, widths: ai, generated: true },
+  wedding: { id: 'ai-wedding-decor', alt: 'An outdoor wedding mandap decorated with marigold garlands and lanterns at dusk', w: 1536, h: 1024, widths: ai, generated: true },
+  templeDiyas: { id: 'ai-temple-diyas', alt: 'Brass diyas, marigold garlands and offerings on old temple steps at dusk', w: 1536, h: 1024, widths: ai, generated: true },
+  mobileCamp: { id: 'ai-mobile-camp', alt: 'Illustrative canvas tent pitched among remote dunes at dusk with a lantern outside', w: 1536, h: 1024, widths: ai, generated: true },
 } satisfies Record<string, PhotoSpec>;
 export type PhotoKey = keyof typeof photoData;
 export const photos: Record<PhotoKey, PhotoSpec> = photoData;
@@ -54,4 +66,5 @@ export const bookingSteps = [
   { title: 'Confirm the details', text: 'The team confirms availability, current rates, timings and inclusions directly with you.' },
 ];
 
-export const routes = ['/', '/about-us/', '/experiences/', '/desert-safari/', '/camp-stay/', '/swiss-tent/', '/cultural-experiences/', '/gallery/', '/contact-us/', '/privacy-policy/'];
+// Hand-built pages. Data-driven service and guide pages are added in src/data/routes.ts.
+export const routes = ['/', '/about-us/', '/experiences/', '/services/', '/desert-safari/', '/camp-stay/', '/swiss-tent/', '/cultural-experiences/', '/gallery/', '/blog/', '/faqs/', '/contact-us/', '/privacy-policy/', '/terms-and-conditions/', '/cancellation-refund-policy/'];
